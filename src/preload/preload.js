@@ -50,6 +50,8 @@ contextBridge.exposeInMainWorld('moboraAPI', {
     // 6. Warranty & IMEI Checker
     warranty: {
         checkImei: (query) => ipcRenderer.invoke('warranty:check-imei', query),
+        getStats: () => ipcRenderer.invoke('warranty:get-stats'),
+        void: (payload) => ipcRenderer.invoke('warranty:void', payload),
         list: (params) => ipcRenderer.invoke('warranty:list', params)
     },
 

@@ -597,7 +597,7 @@
 </div>
 </div>
 <!-- Dynamic New Product Slide-Over Drawer / Modal (Visible by Default as Showcased) -->
-<div class="fixed inset-0 z-50 flex justify-end bg-surface-container-lowest/80 backdrop-blur-sm transition-opacity duration-300" id="productModal">
+<div class="fixed inset-0 z-50 flex justify-end bg-surface-container-lowest/80 backdrop-blur-sm transition-opacity duration-300 hidden" id="productModal">
 <div class="w-full max-w-3xl h-full bg-surface-container-low shadow-2xl flex flex-col overflow-y-auto">
 <!-- Drawer Header -->
 <div class="sticky top-0 bg-surface-container px-space-lg py-space-md flex items-center justify-between z-10 shadow-sm">
@@ -930,4 +930,7 @@
   openBtn.addEventListener('click', openDrawer);
   closeBtn.addEventListener('click', closeDrawer);
   cancelBtn.addEventListener('click', closeDrawer);
-</script></main></div></body></html>
+</script>
+<script src="../../src/renderer/navigation.js"></script>
+<script src="../../src/renderer/inventory.renderer.js"></script>
+</main></div></body></html>

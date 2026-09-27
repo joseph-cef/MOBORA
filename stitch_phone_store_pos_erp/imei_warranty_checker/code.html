@@ -458,56 +458,7 @@
 </div>
 </div>
 </div>
-<script>
-  function setSample(imei) {
-    const input = document.getElementById('imeiInput');
-    if (input) {
-      input.value = imei;
-      handleSearch();
-    }
-  }
-
-  function handleSearch() {
-    const imei = document.getElementById('imeiInput').value.trim();
-    const banner = document.getElementById('warrantyBanner');
-    const label = document.getElementById('warrantyStatusLabel');
-    const subtext = document.getElementById('warrantySubtext');
-    const iconBox = document.getElementById('statusIconBox');
-
-    if (imei === '352109849201944') {
-      // Expired State
-      if (label) label.textContent = 'منتهي الصلاحية (Garantie Expirée)';
-      if (label) label.className = 'font-headline-lg text-headline-lg text-error font-bold';
-      if (subtext) subtext.textContent = 'انتهت فترة الضمان منذ 42 يوماً (بتاريخ 10 سبتمبر 2024). الإصلاحات تخضع لتسعيرة الورشة.';
-      if (iconBox) {
-        iconBox.className = 'w-16 h-16 rounded-xl bg-error/20 text-error flex items-center justify-center shrink-0 shadow-lg';
-        iconBox.innerHTML = '<span class="material-symbols-outlined text-[36px]">error_outline</span>';
-      }
-    } else if (imei === 'PART-OLED-IP14P-992') {
-      // Part Warranty State
-      if (label) label.textContent = 'ضمان قطعة صيانة (Garantie Pièce)';
-      if (label) label.className = 'font-headline-lg text-headline-lg text-tertiary font-bold';
-      if (subtext) subtext.textContent = 'متبقي 45 يوماً على ضمان استبدال الشاشة ضد العيوب الفنية للمس.';
-      if (iconBox) {
-        iconBox.className = 'w-16 h-16 rounded-xl bg-tertiary/20 text-tertiary flex items-center justify-center shrink-0 shadow-lg';
-        iconBox.innerHTML = '<span class="material-symbols-outlined text-[36px]">memory</span>';
-      }
-    } else {
-      // Valid State
-      if (label) label.textContent = 'ساري المفعول (Garantie Valide)';
-      if (label) label.className = 'font-headline-lg text-headline-lg text-primary font-bold';
-      if (subtext) subtext.textContent = 'متبقي 184 يوماً حتى نهاية فترة التغطية الشاملة للعيوب المصنعية';
-      if (iconBox) {
-        iconBox.className = 'w-16 h-16 rounded-xl bg-primary/20 text-primary flex items-center justify-center shrink-0 shadow-lg';
-        iconBox.innerHTML = '<span class="material-symbols-outlined text-[36px]">verified_user</span>';
-      }
-    }
-  }
-
-  document.getElementById('triggerSearchBtn')?.addEventListener('click', handleSearch);
-  document.getElementById('imeiInput')?.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-      handleSearch();
-    }
-  });
-</script></main></div></body></html>
+</main></div>
+<script src="../../src/renderer/navigation.js"></script>
+<script src="../../src/renderer/warranty.renderer.js"></script>
+</body></html>

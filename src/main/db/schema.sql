@@ -23,7 +23,8 @@ CREATE TABLE IF NOT EXISTS audit_logs (
     employee_id INTEGER,
     action_type TEXT NOT NULL CHECK(action_type IN (
         'sale_created', 'sale_voided', 'price_changed', 'product_deleted',
-        'stock_adjusted', 'expense_added', 'expense_deleted', 'pin_verified', 'backup_restored'
+        'stock_adjusted', 'expense_added', 'expense_deleted', 'pin_verified', 'backup_restored',
+        'warranty_check', 'warranty_voided'
     )),
     target_entity TEXT NOT NULL,
     target_id TEXT NOT NULL,

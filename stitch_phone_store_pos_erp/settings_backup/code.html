@@ -552,7 +552,6 @@
 </section>
 </div>
 </div>
-</div>
 <!-- Notification Toast Simulation -->
 <div class="fixed bottom-6 left-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none" id="saveToast">
 <div class="flex items-center gap-space-sm bg-primary text-on-primary px-space-lg py-space-sm rounded-xl shadow-2xl">
@@ -560,85 +559,7 @@
 <span class="font-headline-md text-headline-md font-bold">تم حفظ جميع إعدادات النظام بنجاح!</span>
 </div>
 </div>
-<!-- Interactive Logic -->
-<script>
-    (function initSettingsDashboard() {
-      // Tab Switching
-      const tabButtons = document.querySelectorAll('.tab-btn');
-      const tabContents = document.querySelectorAll('.tab-content');
-
-      tabButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const targetId = btn.getAttribute('data-target');
-
-          // Reset all tab button styles
-          tabButtons.forEach(b => {
-            b.className = 'tab-btn w-full flex items-center justify-between p-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all';
-          });
-
-          // Set Active tab button style
-          btn.className = 'tab-btn w-full flex items-center justify-between p-space-sm rounded-lg bg-primary-container text-on-primary-container font-semibold transition-all';
-
-          // Hide all content tabs
-          tabContents.forEach(content => {
-            content.classList.add('hidden');
-            content.classList.remove('block');
-          });
-
-          // Show targeted content tab
-          const activeContent = document.getElementById(targetId);
-          if (activeContent) {
-            activeContent.classList.remove('hidden');
-            activeContent.classList.add('block');
-          }
-        });
-      });
-
-      // Save Trigger & Toast Feedback
-      const saveBtn = document.getElementById('saveGlobalBtn');
-      const toast = document.getElementById('saveToast');
-
-      function triggerSaveNotification() {
-        if (!toast) return;
-        toast.classList.remove('translate-y-24', 'opacity-0');
-        toast.classList.add('translate-y-0', 'opacity-100');
-
-        setTimeout(() => {
-          toast.classList.remove('translate-y-0', 'opacity-100');
-          toast.classList.add('translate-y-24', 'opacity-0');
-        }, 2800);
-      }
-
-      if (saveBtn) {
-        saveBtn.addEventListener('click', triggerSaveNotification);
-      }
-
-      // Keyboard Shortcut Ctrl+S
-      window.addEventListener('keydown', (e) => {
-        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
-          e.preventDefault();
-          triggerSaveNotification();
-        }
-      });
-
-      // Instant Backup Simulation
-      const triggerBackupBtn = document.getElementById('triggerBackupBtn');
-      if (triggerBackupBtn) {
-        triggerBackupBtn.addEventListener('click', () => {
-          const originalText = triggerBackupBtn.innerHTML;
-          triggerBackupBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[24px]">progress_activity</span><span>جاري ضغط وتشفير البيانات...</span>';
-          triggerBackupBtn.disabled = true;
-
-          setTimeout(() => {
-            triggerBackupBtn.innerHTML = '<span class="material-symbols-outlined text-[24px]">check_circle</span><span>تم النسخ بنجاح (251.2 MB)</span>';
-            setTimeout(() => {
-              triggerBackupBtn.innerHTML = originalText;
-              triggerBackupBtn.disabled = false;
-              triggerSaveNotification();
-            }, 2000);
-          }, 1800);
-        });
-      }
-    })();
-  </script>
-</div></main></div></body></html>
+</div></main></div>
+<script src="../../src/renderer/navigation.js"></script>
+<script src="../../src/renderer/settings.renderer.js"></script>
+</body></html>
