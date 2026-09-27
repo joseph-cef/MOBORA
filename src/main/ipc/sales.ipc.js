@@ -1,6 +1,7 @@
 // POS & Sales IPC Handlers
 const { getDb } = require('../db');
 const { logAudit } = require('../services/audit.service');
+const { syncSoldOutOnTelegram } = require('../services/telegram.service');
 
 function registerSalesIpc(ipcMain) {
     // 1. Create Sale (POS Checkout)
@@ -189,6 +190,23 @@ function registerSalesIpc(ipcMain) {
         });
 
         saleTx();
+
+        // Phase 4: Async sync sold-out status to Telegram channels
+        if (saleResult && saleResult.items) {
+            for (const item of saleResult.items) {
+                try {
+                    const currentProd = db.prepare('SELECT current_stock FROM products WHERE id = ?').get(item.product_id);
+                    if (currentProd && currentProd.current_stock <= 0) {
+                        syncSoldOutOnTelegram(item.product_id).catch(err => {
+                            console.warn('[Telegram Sold-Out Sync POS Warning]', err.message);
+                        });
+                    }
+                } catch (e) {
+                    // Non-blocking
+                }
+            }
+        }
+
         return { success: true, sale: saleResult };
     });
 

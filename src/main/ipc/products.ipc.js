@@ -1,6 +1,7 @@
 // Products & Inventory IPC Handlers
 const { getDb } = require('../db');
 const { logAudit } = require('../services/audit.service');
+const { broadcastNewProduct, syncPriceChangeOnTelegram } = require('../services/telegram.service');
 
 function registerProductsIpc(ipcMain) {
     // 1. Get Categories
@@ -215,6 +216,14 @@ function registerProductsIpc(ipcMain) {
         });
 
         createTx();
+
+        // Phase 4: Auto-broadcast to Telegram if enabled
+        if (data.is_telegram_synced) {
+            broadcastNewProduct(createdProduct.id).catch(err => {
+                console.warn('[Telegram Auto-Post Warning]', err.message);
+            });
+        }
+
         return { success: true, product: createdProduct };
     });
 
@@ -299,6 +308,14 @@ function registerProductsIpc(ipcMain) {
         });
 
         updateTx();
+
+        // Phase 4: Sync price update on Telegram if price changed
+        if (data.sell_price !== undefined && Number(data.sell_price) !== Number(oldProduct.sell_price)) {
+            syncPriceChangeOnTelegram(id, data.sell_price).catch(err => {
+                console.warn('[Telegram Price Sync Warning]', err.message);
+            });
+        }
+
         return { success: true };
     });
 

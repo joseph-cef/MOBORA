@@ -9,6 +9,7 @@ const { registerFinanceIpc } = require('./finance.ipc');
 const { registerEmployeesIpc } = require('./employees.ipc');
 const { registerSettingsIpc } = require('./settings.ipc');
 const { registerTelegramIpc } = require('./telegram.ipc');
+const { registerPrinterIpc } = require('./printer.ipc');
 
 function registerAllIpc(ipcMain) {
     console.log('[IPC] Registering all domain IPC handlers...');
@@ -22,6 +23,7 @@ function registerAllIpc(ipcMain) {
     registerEmployeesIpc(ipcMain);
     registerSettingsIpc(ipcMain);
     registerTelegramIpc(ipcMain);
+    registerPrinterIpc(ipcMain);
     console.log('[IPC] All domain IPC handlers successfully registered.');
 }
 

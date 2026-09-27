@@ -292,7 +292,14 @@
                 priority: isUrgent ? 'urgent' : 'normal'
             });
 
-            alert(`✅ تم فتح تذكرة صيانة جديدة بنجاح!\nرقم التذكرة: ${res.ticket.ticket_number}`);
+            const shouldPrint = confirm(`✅ تم فتح تذكرة صيانة جديدة بنجاح!\nرقم التذكرة: ${res.ticket.ticket_number}\n\nهل ترغب في طباعة وصل الاستلام الحراري (Voucher) للزبون الآن؟`);
+            if (shouldPrint && window.moboraAPI && window.moboraAPI.printer) {
+                try {
+                    await window.moboraAPI.printer.printRepair({ repairId: res.ticket.id });
+                } catch (pe) {
+                    console.warn('[Repair Voucher Print Warning]', pe.message);
+                }
+            }
             loadKanban();
         } catch (e) {
             alert('خطأ: ' + e.message);

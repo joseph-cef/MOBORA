@@ -88,6 +88,19 @@ contextBridge.exposeInMainWorld('moboraAPI', {
         deleteChannel: (id) => ipcRenderer.invoke('telegram:delete-channel', id),
         sendTestMessage: (chatId) => ipcRenderer.invoke('telegram:send-test-message', chatId),
         listPosts: (params) => ipcRenderer.invoke('telegram:list-posts', params),
-        publishProduct: (payload) => ipcRenderer.invoke('telegram:publish-product', payload)
+        publishProduct: (payload) => ipcRenderer.invoke('telegram:publish-product', payload),
+        retryPending: () => ipcRenderer.invoke('telegram:retry-pending'),
+        broadcastProduct: (productId) => ipcRenderer.invoke('telegram:broadcast-product', productId),
+        syncSoldOut: (productId) => ipcRenderer.invoke('telegram:sync-sold-out', productId),
+        syncPrice: (payload) => ipcRenderer.invoke('telegram:sync-price', payload)
+    },
+
+    // 11. Thermal Printing
+    printer: {
+        getList: () => ipcRenderer.invoke('printer:get-list'),
+        printSale: (payload) => ipcRenderer.invoke('printer:print-sale', payload),
+        printRepair: (payload) => ipcRenderer.invoke('printer:print-repair', payload),
+        exportPdf: (payload) => ipcRenderer.invoke('printer:export-pdf', payload),
+        testPrint: (params) => ipcRenderer.invoke('printer:test-print', params)
     }
 });

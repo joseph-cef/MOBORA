@@ -3,6 +3,7 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const { initDatabase, closeDb } = require('./db');
 const { registerAllIpc } = require('./ipc');
+const { startAutomatedBackupScheduler, stopAutomatedBackupScheduler } = require('./services/backup.service');
 
 let mainWindow = null;
 
@@ -45,7 +46,10 @@ app.whenReady().then(() => {
     // 2. Register all domain IPC Handlers
     registerAllIpc(ipcMain);
 
-    // 3. Create Main Window
+    // 3. Start Background Automated Backup Scheduler
+    startAutomatedBackupScheduler();
+
+    // 4. Create Main Window
     createWindow();
 
     app.on('activate', () => {
@@ -56,6 +60,7 @@ app.whenReady().then(() => {
 });
 
 app.on('window-all-closed', () => {
+    stopAutomatedBackupScheduler();
     closeDb();
     if (process.platform !== 'darwin') {
         app.quit();

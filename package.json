@@ -8,6 +8,9 @@
     "test:db": "electron test_db.js",
     "test:ipc": "electron test_ipc.js",
     "test:e2e": "electron test_e2e.js",
+    "test:telegram": "electron test_telegram.js",
+    "test:phase5": "electron test_phase5.js",
+    "test": "electron test_db.js && electron test_ipc.js && electron test_telegram.js && electron test_phase5.js && electron test_e2e.js",
     "postinstall": "cd node_modules/better-sqlite3 && npx prebuild-install --runtime=electron --target=32.0.0"
   },
   "keywords": [

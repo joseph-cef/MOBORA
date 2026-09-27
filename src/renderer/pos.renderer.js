@@ -256,8 +256,16 @@
             const res = await window.moboraAPI.sales.create(payload);
             if (res.success) {
                 const inv = res.sale;
-                alert(`✅ تم إتمام عملية البيع بنجاح!\n\nرقم الفاتورة: ${inv.invoice_number}\nالإجمالي: ${Number(inv.total_amount).toLocaleString('fr-DZ')} د.ج\nطريقة الدفع: ${payMethod}\nتم خصم المخزون وتوليد بطاقة الضمان بنجاح.`);
+                const shouldPrint = confirm(`✅ تم إتمام عملية البيع بنجاح!\n\nرقم الفاتورة: ${inv.invoice_number}\nالإجمالي: ${Number(inv.total_amount).toLocaleString('fr-DZ')} د.ج\nطريقة الدفع: ${payMethod}\n\nهل ترغب في طباعة الوصل الحراري (80mm/58mm) الآن؟`);
                 
+                if (shouldPrint && window.moboraAPI && window.moboraAPI.printer) {
+                    try {
+                        await window.moboraAPI.printer.printSale({ saleId: inv.id });
+                    } catch (printErr) {
+                        console.warn('[POS Thermal Print Warning]', printErr.message);
+                    }
+                }
+
                 // Reset cart & reload catalog
                 cart = [];
                 renderCart();

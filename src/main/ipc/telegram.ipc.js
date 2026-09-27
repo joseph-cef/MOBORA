@@ -1,7 +1,17 @@
 // Telegram Bot & Channels IPC Handlers
 const { getDb } = require('../db');
 const { logAudit } = require('../services/audit.service');
-const { testBotConnection, sendTelegramMessage, sendTelegramPhoto, editMessageCaption, getBotToken } = require('../services/telegram.service');
+const { 
+    testBotConnection, 
+    sendTelegramMessage, 
+    sendTelegramPhoto, 
+    editMessageCaption, 
+    getBotToken,
+    broadcastNewProduct,
+    syncPriceChangeOnTelegram,
+    syncSoldOutOnTelegram,
+    retryPendingTelegramPosts
+} = require('../services/telegram.service');
 
 function registerTelegramIpc(ipcMain) {
     // 1. Test Bot Token
@@ -147,6 +157,28 @@ function registerTelegramIpc(ipcMain) {
 
             return { success: false, queued: true, error: err.message };
         }
+    });
+
+    // 8. Retry pending offline posts
+    ipcMain.handle('telegram:retry-pending', async () => {
+        return await retryPendingTelegramPosts();
+    });
+
+    // 9. Manual broadcast product to active auto channels
+    ipcMain.handle('telegram:broadcast-product', async (event, productId) => {
+        return await broadcastNewProduct(productId);
+    });
+
+    // 10. Sync sold out badge
+    ipcMain.handle('telegram:sync-sold-out', async (event, productId) => {
+        await syncSoldOutOnTelegram(productId);
+        return { success: true };
+    });
+
+    // 11. Sync price change
+    ipcMain.handle('telegram:sync-price', async (event, { productId, newPrice }) => {
+        await syncPriceChangeOnTelegram(productId, newPrice);
+        return { success: true };
     });
 }
 
