@@ -1,0 +1,30 @@
+{
+  "name": "mobora",
+  "version": "1.0.0",
+  "description": "Mobora — Phone Store OS (Electron POS & ERP)",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test:db": "electron test_db.js",
+    "test:ipc": "electron test_ipc.js",
+    "postinstall": "cd node_modules/better-sqlite3 && npx prebuild-install --runtime=electron --target=32.0.0"
+  },
+  "keywords": [
+    "electron",
+    "pos",
+    "erp",
+    "phone-store",
+    "inventory",
+    "repairs",
+    "sqlite"
+  ],
+  "author": "Mobora",
+  "license": "ISC",
+  "dependencies": {
+    "better-sqlite3": "^11.8.1"
+  },
+  "devDependencies": {
+    "axios": "^1.7.7",
+    "electron": "^32.2.0"
+  }
+}

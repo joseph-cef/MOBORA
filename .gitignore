@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Environment variables and local secrets
+.env
+.env.*
+!.env.example
+
+# Local application data and SQLite databases
+data/*.db
+data/**/*.db
+data/*.sqlite
+data/**/*.sqlite
+data/*.sqlite3
+data/**/*.sqlite3
+data/backups/
+
+# Logs and generated test output
+*.log
+electron_test_result.txt
+coverage/
+.nyc_output/
+
+# Electron/Node build artifacts
+dist/
+out/
+build/
+release/
+*.asar
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE/editor files
+.idea/
+.vscode/
+*.swp
+*.swo
