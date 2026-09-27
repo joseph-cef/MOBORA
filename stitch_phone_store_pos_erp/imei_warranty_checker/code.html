@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary": "#00344d", "secondary-fixed-dim": "#89ceff", "on-secondary-container": "#00344e", "on-background": "#dae2fd", "tertiary-fixed-dim": "#ffb95f", "outline-variant": "#3c4a42", "surface-container-lowest": "#060e20", "background": "#0b1326", "surface-container-highest": "#2d3449", "secondary-container": "#00a2e6", "surface-container": "#171f33", "on-tertiary": "#472a00", "on-surface": "#dae2fd", "on-tertiary-fixed-variant": "#653e00", "tertiary-container": "#e29100", "on-tertiary-container": "#523200", "surface": "#0b1326", "on-primary-fixed-variant": "#005236", "on-primary-fixed": "#002113", "primary-fixed": "#6ffbbe", "error": "#ffb4ab", "on-primary-container": "#00422b", "surface-bright": "#31394d", "outline": "#86948a", "on-tertiary-fixed": "#2a1700", "tertiary-fixed": "#ffddb8", "inverse-on-surface": "#283044", "surface-dim": "#0b1326", "on-error-container": "#ffdad6", "primary-container": "#10b981", "surface-tint": "#4edea3", "surface-container-high": "#222a3d", "error-container": "#93000a", "surface-variant": "#2d3449", "on-secondary-fixed": "#001e2f", "primary-fixed-dim": "#4edea3", "secondary-fixed": "#c9e6ff", "secondary": "#89ceff", "on-secondary-fixed-variant": "#004c6e", "inverse-surface": "#dae2fd", "tertiary": "#ffb95f", "surface-container-low": "#131b2e", "primary": "#4edea3", "inverse-primary": "#006c49", "on-error": "#690005", "on-primary": "#003824", "on-surface-variant": "#bbcabf" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xs": "0.25rem", "gutter": "1rem", "space-xl": "2rem", "space-lg": "1.5rem", "space-md": "1rem", "margin": "1.5rem", "space-sm": "0.5rem" }, "fontFamily": { "headline-md": [ "Inter" ], "body-sm": [ "Inter" ], "label-lg": [ "JetBrains Mono" ], "headline-lg": [ "Inter" ], "body-lg": [ "Inter" ], "label-sm": [ "JetBrains Mono" ], "body-md": [ "Inter" ], "label-md": [ "JetBrains Mono" ], "headline-xl": [ "Inter" ] }, "fontSize": { "headline-md": [ "18px", { "lineHeight": "26px", "fontWeight": "600" } ], "body-sm": [ "12px", { "lineHeight": "16px", "fontWeight": "400" } ], "label-lg": [ "14px", { "lineHeight": "20px", "fontWeight": "500" } ], "headline-lg": [ "24px", { "lineHeight": "32px", "fontWeight": "600" } ], "body-lg": [ "16px", { "lineHeight": "24px", "fontWeight": "400" } ], "label-sm": [ "11px", { "lineHeight": "14px", "fontWeight": "500" } ], "body-md": [ "14px", { "lineHeight": "20px", "fontWeight": "400" } ], "label-md": [ "12px", { "lineHeight": "16px", "fontWeight": "500" } ], "headline-xl": [ "32px", { "lineHeight": "40px", "fontWeight": "700" } ] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface select-none antialiased"><aside class="fixed right-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="p-space-md flex items-center gap-space-sm bg-surface-container"><img alt="PhoneHub ERP Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UWlRCIFeyPwmpk_XFhl29FsALAZYZ2QExwnFGAwYpLl5noX2HDoJh00lYtFHGxFDROkjEHQH-3rpiSjrmjAm3HWGNmKSQlTwzc3l6seLEqX0KFEfEE2om71jIE6OqhvIGspgmAXMcY4TV2GwOFATSxql1MU1_M5S4G_dQYlQvjugNhiMAIRw2OiWOFPlJyz-LCMkweo92FuJQzx5p3QSmZ9_DhsicyxoK0PMnrnLhSFtnIQbFEVNAk-38"/><div class="flex flex-col min-w-0"><span class="font-headline-md text-headline-md text-primary tracking-tight truncate">PhoneHub Pro</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">متجر الهواتف والصيانة</span></div></div><div class="px-space-md py-space-sm"><div class="flex items-center justify-between p-space-xs px-space-sm bg-surface-container rounded-lg"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-label-sm text-primary">المحل: مفتوح</span></div><span class="font-label-sm text-label-sm text-on-surface-variant">وهران / الجزائر</span></div></div><nav class="flex flex-col gap-1 px-space-sm py-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-body-md text-body-md">الرئيسية</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="pos-terminal" href="#"><span class="material-symbols-outlined text-[20px]">point_of_sale</span><span class="font-body-md text-body-md">نقطة البيع (POS)</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="inventory-management" href="#"><span class="material-symbols-outlined text-[20px]">inventory_2</span><span class="font-body-md text-body-md">المنتجات والمخزون</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="repairs-workshop" href="#"><span class="material-symbols-outlined text-[20px]">build_circle</span><span class="font-body-md text-body-md">ورشة الصيانة والإصلاحات</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="suppliers-and-invoices" href="#"><span class="material-symbols-outlined text-[20px]">local_shipping</span><span class="font-body-md text-body-md">الموردون والفواتير</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="warranty-imei-checker" href="#"><span class="material-symbols-outlined text-[20px]">verified</span><span class="font-body-md text-body-md">فحص الضمان (IMEI)</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="telegram-bot-integration" href="#"><span class="material-symbols-outlined text-[20px]">send</span><span class="font-body-md text-body-md">تيليجرام بوت</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="finance-and-reports" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span class="font-body-md text-body-md">المالية والتقارير</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="staff-and-audit-logs" href="#"><span class="material-symbols-outlined text-[20px]">badge</span><span class="font-body-md text-body-md">الموظفون وسجل النشاط</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="system-backup" href="#"><span class="material-symbols-outlined text-[20px]">cloud_sync</span><span class="font-body-md text-body-md">النسخ الاحتياطي</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="system-settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-body-md text-body-md">الإعدادات</span></a></nav></div><div class="p-space-sm flex flex-col gap-space-xs bg-surface-container-lowest"><div class="p-space-sm bg-surface-container rounded-lg flex items-center justify-between"><div class="flex items-center gap-space-xs text-tertiary"><span class="material-symbols-outlined text-[18px]">payments</span><span class="font-label-sm text-label-sm text-on-surface-variant">الصندوق:</span></div><span class="font-label-md text-label-md text-tertiary-fixed font-bold tracking-tight">142,500 دج</span></div><div class="p-space-sm bg-surface-container rounded-lg flex items-center justify-between"><div class="flex items-center gap-space-xs min-w-0"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-on-surface font-semibold truncate">أحمد بن علي</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">المشرف العام</span></div></div><a class="p-space-xs rounded-lg text-error hover:bg-error-container hover:text-on-error-container transition-colors" data-path="login-portal" href="#" title="تسجيل الخروج"><span class="material-symbols-outlined text-[20px]">logout</span></a></div></div></aside><div class="pr-72"><header class="fixed top-0 left-0 right-72 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.2)] z-40 px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-0"><div class="flex items-center gap-space-xs text-primary font-body-md text-body-md"><span class="material-symbols-outlined text-primary text-[20px]">storefront</span><span class="font-headline-md text-headline-md text-on-surface whitespace-nowrap">محل فون إكسبرس - الجزائر العاصمة</span></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-high rounded-full"><span class="material-symbols-outlined text-secondary text-[16px]">calendar_today</span><span class="font-label-sm text-label-sm text-on-surface-variant">الثلاثاء، 24 أكتوبر 2024</span></div><div class="hidden lg:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-high rounded-full"><span class="w-2 h-2 rounded-full bg-primary"></span><span class="font-label-sm text-label-sm text-on-surface">متصل بالسحابة</span></div></div><div class="flex items-center gap-space-sm flex-1 max-w-lg mx-space-sm"><div class="w-full flex items-center bg-surface-container-lowest rounded-lg px-space-sm py-space-xs text-on-surface-variant focus-within:ring-1 focus-within:ring-primary"><span class="material-symbols-outlined text-[18px] ml-space-xs">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" placeholder="البحث عن هاتف، زبون، فاتورة، IMEI..." type="text"/><span class="font-label-sm text-label-sm bg-surface-container px-space-xs rounded text-outline">Ctrl+K</span></div></div><div class="flex items-center gap-space-xs shrink-0"><button class="hidden sm:flex items-center gap-space-xs bg-primary text-on-primary px-space-sm py-space-xs rounded-lg font-label-md text-label-md hover:bg-primary-fixed-dim transition-colors"><span class="material-symbols-outlined text-[18px]">add_shopping_cart</span><span>+ بيع سريع</span></button><button class="hidden sm:flex items-center gap-space-xs bg-secondary-container text-on-secondary-container px-space-sm py-space-xs rounded-lg font-label-md text-label-md hover:bg-secondary transition-colors"><span class="material-symbols-outlined text-[18px]">handyman</span><span>+ استلام صيانة</span></button><button class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 left-1 w-4 h-4 bg-error text-on-error font-label-sm text-label-sm rounded-full flex items-center justify-center font-bold">3</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="p-gutter flex flex-col gap-space-lg max-w-[1720px] mx-auto w-full">
+<!-- Top Header & Metric Highlights -->
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-14 h-14 rounded-xl bg-surface-container-high flex items-center justify-center shrink-0 shadow-md">
+<span class="material-symbols-outlined text-primary text-[32px]">verified</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">فحص الضمان والـ IMEI المعتمد</h1>
+<span class="px-space-xs py-0.5 rounded bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">Garantie &amp; Sérial</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">التحقق اللحظي من سريان كفالة الأجهزة، فواتير الشراء، وتاريخ الصيانة الفنية بالمحل</p>
+</div>
+</div>
+<!-- Quick Metrics Ribbon -->
+<div class="grid grid-cols-3 gap-space-sm w-full lg:w-auto">
+<div class="bg-surface-container px-space-md py-space-xs rounded-xl flex items-center gap-space-sm shadow-sm">
+<span class="material-symbols-outlined text-primary text-[24px]">verified_user</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">ضمانات سارية</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">1,428 جهاز</span>
+</div>
+</div>
+<div class="bg-surface-container px-space-md py-space-xs rounded-xl flex items-center gap-space-sm shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-[24px]">pending_actions</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">تنتهي خلال 30 يوم</span>
+<span class="font-label-lg text-label-lg text-tertiary font-bold">47 جهاز</span>
+</div>
+</div>
+<div class="bg-surface-container px-space-md py-space-xs rounded-xl flex items-center gap-space-sm shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]">barcode_scanner</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">فحوصات اليوم</span>
+<span class="font-label-lg text-label-lg text-secondary font-bold">89 عملية</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Central Hero Search Hub -->
+<div class="relative bg-surface-container rounded-xl p-space-lg shadow-xl overflow-hidden">
+<div class="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-primary/5 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-secondary/5 blur-3xl pointer-events-none"></div>
+<div class="relative flex flex-col gap-space-md max-w-4xl mx-auto">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">search_check</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">استعلام فوري عن السيريال التسلسلي (IMEI / S/N / Barcode)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary">قاعدة البيانات: الجزائر العاصمة متصلة</span>
+</div>
+</div>
+<!-- Big Search Field Input -->
+<div class="flex flex-col sm:flex-row items-stretch gap-space-xs bg-surface-container-lowest p-space-xs rounded-xl shadow-inner">
+<div class="flex items-center flex-1 px-space-md gap-space-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[26px]">qr_code_scanner</span>
+<input class="w-full bg-transparent font-label-lg text-label-lg text-primary tracking-wider focus:outline-none placeholder:text-outline" id="imeiInput" placeholder="اكتب رقم الـ IMEI المكون من 15 رقم أو رقم السيريال..." type="text" value="359128091823901"/>
+<span class="font-label-sm text-label-sm px-space-xs py-1 rounded bg-surface-container text-on-surface-variant shrink-0">15 رقم</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container-high hover:bg-surface-bright text-on-surface rounded-lg transition-colors font-label-md text-label-md" id="scanCameraBtn" title="تفعيل كاميرا الماسح">
+<span class="material-symbols-outlined text-[20px] text-secondary">videocam</span>
+<span class="hidden md:inline">كاميرا</span>
+</button>
+<button class="flex items-center justify-center gap-space-sm px-space-xl py-space-sm bg-primary text-on-primary font-headline-md text-headline-md rounded-lg shadow-lg hover:bg-primary-fixed-dim transition-all active:scale-[0.98]" id="triggerSearchBtn">
+<span class="material-symbols-outlined text-[22px]">verified</span>
+<span>تحقق من الضمان والسجل</span>
+</button>
+</div>
+</div>
+<!-- Quick Demo Presets -->
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">نماذج تجريبية سريعة:</span>
+<button class="px-space-sm py-1 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-sm text-label-sm transition-colors flex items-center gap-1" onclick="setSample('359128091823901')">
+<span class="text-primary font-bold">iPhone 15 Pro Max</span>
+<span class="text-outline">(ساري الكفالة)</span>
+</button>
+<button class="px-space-sm py-1 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-sm text-label-sm transition-colors flex items-center gap-1" onclick="setSample('864209041289110')">
+<span class="text-secondary font-bold">Galaxy S24 Ultra</span>
+<span class="text-outline">(ساري - 12 شهر)</span>
+</button>
+<button class="px-space-sm py-1 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-sm text-label-sm transition-colors flex items-center gap-1" onclick="setSample('352109849201944')">
+<span class="text-error font-bold">Redmi Note 12 Pro</span>
+<span class="text-outline">(ضمان منتهي)</span>
+</button>
+<button class="px-space-sm py-1 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-sm text-label-sm transition-colors flex items-center gap-1" onclick="setSample('PART-OLED-IP14P-992')">
+<span class="text-tertiary font-bold">شاشة OLED بديلة</span>
+<span class="text-outline">(ضمان ورشة 6 أشهر)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Detailed Inspection Result Section -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- Right Main: Verification File & Details (8 Cols) -->
+<div class="xl:col-span-8 flex flex-col gap-space-lg">
+<!-- Status Hero Banner -->
+<div class="bg-surface-container rounded-xl p-space-lg shadow-xl relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md" id="warrantyBanner">
+<div class="flex items-center gap-space-md">
+<div class="w-16 h-16 rounded-xl bg-primary/20 text-primary flex items-center justify-center shrink-0 shadow-lg" id="statusIconBox">
+<span class="material-symbols-outlined text-[36px]">verified_user</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-lg text-headline-lg text-primary font-bold" id="warrantyStatusLabel">ساري المفعول (Garantie Valide)</span>
+<span class="px-space-xs py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-bold">رسمي 100%</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant" id="warrantySubtext">متبقي 184 يوماً حتى نهاية فترة التغطية الشاملة للعيوب المصنعية</p>
+</div>
+</div>
+<!-- Circular Metric Gauge -->
+<div class="flex items-center gap-space-md self-end md:self-center bg-surface-container-low px-space-md py-space-sm rounded-xl">
+<div class="relative w-14 h-14 flex items-center justify-center">
+<svg class="w-14 h-14 -rotate-90" viewbox="0 0 36 36">
+<circle class="stroke-surface-container-high fill-none stroke-[3]" cx="18" cy="18" r="15.5"></circle>
+<circle class="stroke-primary fill-none stroke-[3]" cx="18" cy="18" r="15.5" stroke-dasharray="100" stroke-dashoffset="49" stroke-linecap="round"></circle>
+</svg>
+<span class="absolute font-label-sm text-label-sm text-primary font-bold">51%</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">الأيام المنقضية</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">181 من 365 يوم</span>
+</div>
+</div>
+</div>
+<!-- Specifications & Customer Invoice Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Product & Serial Identity Card -->
+<div class="bg-surface-container rounded-xl p-space-md shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs text-secondary">
+<span class="material-symbols-outlined text-[20px]">smartphone</span>
+<span class="font-headline-md text-headline-md text-on-surface">بطاقة تعريف الجهاز</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary px-space-xs py-0.5 bg-secondary/10 rounded">الأصلي Original</span>
+</div>
+<!-- Device Image & Specs -->
+<div class="flex gap-space-md items-center bg-surface-container-low p-space-sm rounded-xl">
+<img class="w-20 h-20 rounded-lg object-cover shadow-sm bg-surface-container-high shrink-0" data-alt="Modern Apple iPhone 15 Pro Max smartphone in Natural Titanium resting horizontally on an illuminated graphite workbench with high-tech cyan and emerald diagnostic lighting reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUR3eJtik8W6O9H55ZJ5V7IJkdsLBAvEkmvntzRZM6q7690A8MBP0ffSMzVOAJL4X5B7mVdyXpnAM3ibQmOFVqKl4ryvsZqwV55liIowYhBcyy6xBB2GH5HbCvvBJtVbNu94jHIEy89sChWd7J4OpUKE0t_THAG49XLCXVasXWsiXkoj9AaUZRnygrA9wqW0qDwGSL0bwaTpqzQvSjjzKF1sLirGlpJHjJrKTXNVWYsBGC8Ac9FY1r"/>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-headline-md text-on-surface truncate">iPhone 15 Pro Max</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">256GB - تيتانيوم طبيعي (Natural Titanium)</span>
+<span class="font-label-sm text-label-sm text-secondary font-mono mt-1">الموديل: A3106 / رخصة اتصالات الجزائر</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs font-label-md text-label-md">
+<div class="bg-surface-container-low p-space-xs px-space-sm rounded-lg flex flex-col">
+<span class="text-on-surface-variant text-[11px]">رقم IMEI الأساسي</span>
+<span class="text-primary font-mono tracking-wider text-[13px] font-bold">359128091823901</span>
+</div>
+<div class="bg-surface-container-low p-space-xs px-space-sm rounded-lg flex flex-col">
+<span class="text-on-surface-variant text-[11px]">السيريال نمبر (S/N)</span>
+<span class="text-on-surface font-mono tracking-wider text-[13px]">FD9X192KLM8</span>
+</div>
+<div class="bg-surface-container-low p-space-xs px-space-sm rounded-lg flex flex-col">
+<span class="text-on-surface-variant text-[11px]">شريحة إلكترونية (eSIM)</span>
+<span class="text-on-surface font-mono text-[13px]">مدعومة ومسجلة</span>
+</div>
+<div class="bg-surface-container-low p-space-xs px-space-sm rounded-lg flex flex-col">
+<span class="text-on-surface-variant text-[11px]">حالة قفل الشبكة</span>
+<span class="text-primary font-bold text-[13px]">مفتوح رسمي (Désimlocké)</span>
+</div>
+</div>
+</div>
+<!-- Purchase & Customer Data Card -->
+<div class="bg-surface-container rounded-xl p-space-md shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+<span class="font-headline-md text-headline-md text-on-surface">بيانات البيع والفاتورة</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary px-space-xs py-0.5 bg-primary/10 rounded">فاتورة مسددة</span>
+</div>
+<div class="flex flex-col gap-space-xs bg-surface-container-low p-space-sm rounded-xl">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">اسم المشتري:</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">كمال بلقاسم</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">رقم الهاتف:</span>
+<span class="font-label-md text-label-md text-secondary font-mono">0550 12 34 56</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">رقم الفاتورة:</span>
+<span class="font-label-md text-label-md text-tertiary font-mono">INV-8892#</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">تاريخ ووقت البيع:</span>
+<span class="font-label-md text-label-md text-on-surface">15 ماي 2024 - 17:42</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">الكاشير المسؤول:</span>
+<span class="font-label-md text-label-md text-on-surface">أحمد بن علي (المشرف)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">سعر البيع المسجل:</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">245,000 دج</span>
+</div>
+</div>
+<div class="p-space-xs px-space-sm bg-surface-container-low rounded-lg flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm">طريقة السداد:</span>
+<span class="font-label-sm text-label-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">credit_card</span>
+<span>بريدي موب (BaridiMob) + نقدي</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Warranty Coverage Details -->
+<div class="bg-surface-container rounded-xl p-space-md shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[20px]">security</span>
+<span class="font-headline-md text-headline-md text-on-surface">شروط وبنود التغطية الممنوحة</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">ضمان محلي رسمي - PhoneHub Assurance</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm">
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">مدة الضمان الإجمالية</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">12 شهراً</span>
+<span class="font-body-sm text-body-sm text-outline">شامل القطع الفنية والمصنعية</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">تاريخ بدء الضمان</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">15 ماي 2024</span>
+<span class="font-body-sm text-body-sm text-primary">تاريخ خروج الفاتورة</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">تاريخ الانتهاء المعتمد</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">15 ماي 2025</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">23:59 بالتوقيت المحلي</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">العناصر المشمولة والمستثناة:</span>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-xs font-body-sm text-body-sm">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>اللوحة الأم والدارات الإلكترونية (Motherboard)</span>
+</div>
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>فحص كفاءة البطارية والشاحن الأصلي</span>
+</div>
+<div class="flex items-center gap-space-xs text-outline">
+<span class="material-symbols-outlined text-[16px] text-error">cancel</span>
+<span>الكسور والخدوش الناتجة عن السقوط الحر</span>
+</div>
+<div class="flex items-center gap-space-xs text-outline">
+<span class="material-symbols-outlined text-[16px] text-error">cancel</span>
+<span>الأضرار الناجمة عن التماس السوائل والماء</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Historical Workshop Service Record (Attached to this IMEI) -->
+<div class="bg-surface-container rounded-xl p-space-md shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-tertiary">
+<span class="material-symbols-outlined text-[20px]">build_circle</span>
+<span class="font-headline-md text-headline-md text-on-surface">سجل الصيانة والتدخلات لـ IMEI هذا الجهاز</span>
+</div>
+<span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface">تدخلين سابقين (2)</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<!-- Record Item 1 -->
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">screen_rotation</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold">استبدال واقي شاشة سيراميك + كفر حماية MagSafe</span>
+<span class="px-space-xs py-0.5 rounded bg-primary/20 text-primary text-[10px]">مكتمل</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">تم التركيب مجاناً كهدية فحص الضمان الربع سنوي • الفني: رفيق مهدي</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface font-mono">18 أوت 2024</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">0.00 دج (تحت الضمان)</span>
+</div>
+</div>
+<!-- Record Item 2 -->
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">battery_charging_full</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold">فحص معايرة الشحن وتشخيص البطارية</span>
+<span class="px-space-xs py-0.5 rounded bg-secondary/20 text-secondary text-[10px]">فحص سليم</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">صحة البطارية 99% - دورات الشحن 72 دورة - لا توجد حرارة غير طبيعية</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface font-mono">03 جويلية 2024</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">تذكرة: REP-1044#</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Control Buttons -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm bg-surface-container p-space-md rounded-xl shadow-md">
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="flex items-center gap-space-xs px-space-md py-space-sm bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:bg-primary-fixed-dim transition-all shadow-md">
+<span class="material-symbols-outlined text-[20px]">print</span>
+<span>طباعة شهادة الضمان الرسمية (PDF)</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px] text-tertiary">handyman</span>
+<span>فتح تذكرة صيانة تحت الضمان</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px] text-secondary">share</span>
+<span>إرسال التقرير للزبون (WhatsApp/SMS)</span>
+</button>
+</div>
+<button class="flex items-center gap-space-xs px-space-md py-space-sm text-error hover:bg-error/10 rounded-lg transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[20px]">report_problem</span>
+<span>إبلاغ عن تلاعب / إلغاء الكفالة</span>
+</button>
+</div>
+</div>
+<!-- Left Sidebar: Recent Checks & Store Activity (4 Cols) -->
+<div class="xl:col-span-4 flex flex-col gap-space-md">
+<!-- Live Audit / Today's Scans -->
+<div class="bg-surface-container rounded-xl p-space-md shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[22px]">history</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">آخر عمليات الفحص اليوم</h2>
+</div>
+<button class="text-on-surface-variant hover:text-primary font-label-sm text-label-sm transition-colors">مسح السجل</button>
+</div>
+<div class="flex flex-col gap-space-xs">
+<!-- Audit Item 1 (Active) -->
+<div class="p-space-sm bg-surface-container-high rounded-xl flex items-center justify-between gap-space-xs hover:bg-surface-bright transition-colors cursor-pointer">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">phone_iphone</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">iPhone 15 Pro Max</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono truncate">IMEI: ...823901</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="px-space-xs py-0.5 rounded bg-primary/10 text-primary font-label-sm text-label-sm font-bold">ساري (184 يوم)</span>
+<span class="font-label-sm text-label-sm text-outline">منذ دقيقتين</span>
+</div>
+</div>
+<!-- Audit Item 2 (Active) -->
+<div class="p-space-sm bg-surface-container-low rounded-xl flex items-center justify-between gap-space-xs hover:bg-surface-container-high transition-colors cursor-pointer" onclick="setSample('864209041289110')">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-secondary/20 text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">smartphone</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Samsung S24 Ultra</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono truncate">IMEI: ...289110</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="px-space-xs py-0.5 rounded bg-primary/10 text-primary font-label-sm text-label-sm font-bold">ساري (312 يوم)</span>
+<span class="font-label-sm text-label-sm text-outline">16:15</span>
+</div>
+</div>
+<!-- Audit Item 3 (Expired) -->
+<div class="p-space-sm bg-surface-container-low rounded-xl flex items-center justify-between gap-space-xs hover:bg-surface-container-high transition-colors cursor-pointer" onclick="setSample('352109849201944')">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-error/20 text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">error_outline</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Xiaomi Redmi Note 12</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono truncate">IMEI: ...01944</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="px-space-xs py-0.5 rounded bg-error/10 text-error font-label-sm text-label-sm font-bold">منتهي الضمان</span>
+<span class="font-label-sm text-label-sm text-outline">15:40</span>
+</div>
+</div>
+<!-- Audit Item 4 (Replacement Part) -->
+<div class="p-space-sm bg-surface-container-low rounded-xl flex items-center justify-between gap-space-xs hover:bg-surface-container-high transition-colors cursor-pointer" onclick="setSample('PART-OLED-IP14P-992')">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-tertiary/20 text-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">memory</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">شاشة OLED iP 14 Pro</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono truncate">S/N: PART-OLED-992</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="px-space-xs py-0.5 rounded bg-tertiary/10 text-tertiary font-label-sm text-label-sm font-bold">ضمان قطع (45 يوم)</span>
+<span class="font-label-sm text-label-sm text-outline">14:10</span>
+</div>
+</div>
+<!-- Audit Item 5 -->
+<div class="p-space-sm bg-surface-container-low rounded-xl flex items-center justify-between gap-space-xs hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-secondary/20 text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">headphones</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">AirPods Pro 2 USB-C</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono truncate">S/N: H49DJ019A</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="px-space-xs py-0.5 rounded bg-primary/10 text-primary font-label-sm text-label-sm font-bold">ساري (88 يوم)</span>
+<span class="font-label-sm text-label-sm text-outline">11:22</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Store Warranty Policy Card -->
+<div class="bg-surface-container rounded-xl p-space-md shadow-md flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[20px]">policy</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">سياسة الضمان المعتمدة بمحلات PhoneHub</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            يتم تفعيل الضمان آلياً عند إصدار الفاتورة من نقطة البيع (POS). يشترط للفحص مطابقة رقم السيريال المسجل في لوحة الأم مع بطاقة الفاتورة دون أي كسر باللاصق الأمني.
+          </p>
+<div class="flex items-center justify-between pt-space-xs font-label-sm text-label-sm text-outline">
+<span>المرسوم التنفيذي الجزائري لحماية المستهلك</span>
+<span class="text-primary hover:underline cursor-pointer">عرض الشروط</span>
+</div>
+</div>
+<!-- Device Diagnostic Hardware Checker Tooltip Card -->
+<div class="bg-gradient-to-br from-surface-container to-surface-container-high p-space-md rounded-xl shadow-md flex flex-col gap-space-xs relative overflow-hidden">
+<div class="flex items-center gap-space-xs text-secondary">
+<span class="material-symbols-outlined text-[20px]">usb</span>
+<span class="font-headline-md text-headline-md text-on-surface">ربط الفحص المباشر بالكابل (USB Test)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">قم بتوصيل الهاتف بمنفذ الورشة لقراءة الـ IMEI ورقم اللوحة الأم مباشرة وتجاوز الإدخال اليدوي.</p>
+<button class="mt-space-xs self-start px-space-md py-1.5 rounded-lg bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold hover:bg-secondary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">cable</span>
+<span>بدء قراءة الجهاز المتصل</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function setSample(imei) {
+    const input = document.getElementById('imeiInput');
+    if (input) {
+      input.value = imei;
+      handleSearch();
+    }
+  }
+
+  function handleSearch() {
+    const imei = document.getElementById('imeiInput').value.trim();
+    const banner = document.getElementById('warrantyBanner');
+    const label = document.getElementById('warrantyStatusLabel');
+    const subtext = document.getElementById('warrantySubtext');
+    const iconBox = document.getElementById('statusIconBox');
+
+    if (imei === '352109849201944') {
+      // Expired State
+      if (label) label.textContent = 'منتهي الصلاحية (Garantie Expirée)';
+      if (label) label.className = 'font-headline-lg text-headline-lg text-error font-bold';
+      if (subtext) subtext.textContent = 'انتهت فترة الضمان منذ 42 يوماً (بتاريخ 10 سبتمبر 2024). الإصلاحات تخضع لتسعيرة الورشة.';
+      if (iconBox) {
+        iconBox.className = 'w-16 h-16 rounded-xl bg-error/20 text-error flex items-center justify-center shrink-0 shadow-lg';
+        iconBox.innerHTML = '<span class="material-symbols-outlined text-[36px]">error_outline</span>';
+      }
+    } else if (imei === 'PART-OLED-IP14P-992') {
+      // Part Warranty State
+      if (label) label.textContent = 'ضمان قطعة صيانة (Garantie Pièce)';
+      if (label) label.className = 'font-headline-lg text-headline-lg text-tertiary font-bold';
+      if (subtext) subtext.textContent = 'متبقي 45 يوماً على ضمان استبدال الشاشة ضد العيوب الفنية للمس.';
+      if (iconBox) {
+        iconBox.className = 'w-16 h-16 rounded-xl bg-tertiary/20 text-tertiary flex items-center justify-center shrink-0 shadow-lg';
+        iconBox.innerHTML = '<span class="material-symbols-outlined text-[36px]">memory</span>';
+      }
+    } else {
+      // Valid State
+      if (label) label.textContent = 'ساري المفعول (Garantie Valide)';
+      if (label) label.className = 'font-headline-lg text-headline-lg text-primary font-bold';
+      if (subtext) subtext.textContent = 'متبقي 184 يوماً حتى نهاية فترة التغطية الشاملة للعيوب المصنعية';
+      if (iconBox) {
+        iconBox.className = 'w-16 h-16 rounded-xl bg-primary/20 text-primary flex items-center justify-center shrink-0 shadow-lg';
+        iconBox.innerHTML = '<span class="material-symbols-outlined text-[36px]">verified_user</span>';
+      }
+    }
+  }
+
+  document.getElementById('triggerSearchBtn')?.addEventListener('click', handleSearch);
+  document.getElementById('imeiInput')?.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  });
+</script></main></div></body></html>

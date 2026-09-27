@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary": "#00344d", "secondary-fixed-dim": "#89ceff", "on-secondary-container": "#00344e", "on-background": "#dae2fd", "tertiary-fixed-dim": "#ffb95f", "outline-variant": "#3c4a42", "surface-container-lowest": "#060e20", "background": "#0b1326", "surface-container-highest": "#2d3449", "secondary-container": "#00a2e6", "surface-container": "#171f33", "on-tertiary": "#472a00", "on-surface": "#dae2fd", "on-tertiary-fixed-variant": "#653e00", "tertiary-container": "#e29100", "on-tertiary-container": "#523200", "surface": "#0b1326", "on-primary-fixed-variant": "#005236", "on-primary-fixed": "#002113", "primary-fixed": "#6ffbbe", "error": "#ffb4ab", "on-primary-container": "#00422b", "surface-bright": "#31394d", "outline": "#86948a", "on-tertiary-fixed": "#2a1700", "tertiary-fixed": "#ffddb8", "inverse-on-surface": "#283044", "surface-dim": "#0b1326", "on-error-container": "#ffdad6", "primary-container": "#10b981", "surface-tint": "#4edea3", "surface-container-high": "#222a3d", "error-container": "#93000a", "surface-variant": "#2d3449", "on-secondary-fixed": "#001e2f", "primary-fixed-dim": "#4edea3", "secondary-fixed": "#c9e6ff", "secondary": "#89ceff", "on-secondary-fixed-variant": "#004c6e", "inverse-surface": "#dae2fd", "tertiary": "#ffb95f", "surface-container-low": "#131b2e", "primary": "#4edea3", "inverse-primary": "#006c49", "on-error": "#690005", "on-primary": "#003824", "on-surface-variant": "#bbcabf" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xs": "0.25rem", "gutter": "1rem", "space-xl": "2rem", "space-lg": "1.5rem", "space-md": "1rem", "margin": "1.5rem", "space-sm": "0.5rem" }, "fontFamily": { "headline-md": [ "Inter" ], "body-sm": [ "Inter" ], "label-lg": [ "JetBrains Mono" ], "headline-lg": [ "Inter" ], "body-lg": [ "Inter" ], "label-sm": [ "JetBrains Mono" ], "body-md": [ "Inter" ], "label-md": [ "JetBrains Mono" ], "headline-xl": [ "Inter" ] }, "fontSize": { "headline-md": [ "18px", { "lineHeight": "26px", "fontWeight": "600" } ], "body-sm": [ "12px", { "lineHeight": "16px", "fontWeight": "400" } ], "label-lg": [ "14px", { "lineHeight": "20px", "fontWeight": "500" } ], "headline-lg": [ "24px", { "lineHeight": "32px", "fontWeight": "600" } ], "body-lg": [ "16px", { "lineHeight": "24px", "fontWeight": "400" } ], "label-sm": [ "11px", { "lineHeight": "14px", "fontWeight": "500" } ], "body-md": [ "14px", { "lineHeight": "20px", "fontWeight": "400" } ], "label-md": [ "12px", { "lineHeight": "16px", "fontWeight": "500" } ], "headline-xl": [ "32px", { "lineHeight": "40px", "fontWeight": "700" } ] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface select-none antialiased"><aside class="fixed right-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="p-space-md flex items-center gap-space-sm bg-surface-container"><img alt="PhoneHub ERP Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UWlRCIFeyPwmpk_XFhl29FsALAZYZ2QExwnFGAwYpLl5noX2HDoJh00lYtFHGxFDROkjEHQH-3rpiSjrmjAm3HWGNmKSQlTwzc3l6seLEqX0KFEfEE2om71jIE6OqhvIGspgmAXMcY4TV2GwOFATSxql1MU1_M5S4G_dQYlQvjugNhiMAIRw2OiWOFPlJyz-LCMkweo92FuJQzx5p3QSmZ9_DhsicyxoK0PMnrnLhSFtnIQbFEVNAk-38"/><div class="flex flex-col min-w-0"><span class="font-headline-md text-headline-md text-primary tracking-tight truncate">PhoneHub Pro</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">متجر الهواتف والصيانة</span></div></div><div class="px-space-md py-space-sm"><div class="flex items-center justify-between p-space-xs px-space-sm bg-surface-container rounded-lg"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-label-sm text-primary">المحل: مفتوح</span></div><span class="font-label-sm text-label-sm text-on-surface-variant">وهران / الجزائر</span></div></div><nav class="flex flex-col gap-1 px-space-sm py-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="font-body-md text-body-md">الرئيسية</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="pos-terminal" href="#"><span class="font-body-md text-body-md">نقطة البيع (POS)</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="inventory-management" href="#"><span class="font-body-md text-body-md">المنتجات والمخزون</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="repairs-workshop" href="#"><span class="font-body-md text-body-md">ورشة الصيانة والإصلاحات</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="suppliers-and-invoices" href="#"><span class="font-body-md text-body-md">الموردون والفواتير</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="warranty-imei-checker" href="#"><span class="font-body-md text-body-md">فحص الضمان (IMEI)</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="telegram-bot-integration" href="#"><span class="font-body-md text-body-md">تيليجرام بوت</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="finance-and-reports" href="#"><span class="font-body-md text-body-md">المالية والتقارير</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="staff-and-audit-logs" href="#"><span class="font-body-md text-body-md">الموظفون وسجل النشاط</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="system-backup" href="#"><span class="font-body-md text-body-md">النسخ الاحتياطي</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="system-settings" href="#"><span class="font-body-md text-body-md">الإعدادات</span></a></nav></div><div class="p-space-sm flex flex-col gap-space-xs bg-surface-container-lowest"><div class="p-space-sm bg-surface-container rounded-lg flex items-center justify-between"><div class="flex items-center gap-space-xs text-tertiary"><span class="material-symbols-outlined text-[18px]">payments</span><span class="font-label-sm text-label-sm text-on-surface-variant">الصندوق:</span></div><span class="font-label-md text-label-md text-tertiary-fixed font-bold tracking-tight">142,500 دج</span></div><div class="p-space-sm bg-surface-container rounded-lg flex items-center justify-between"><div class="flex items-center gap-space-xs min-w-0"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-on-surface font-semibold truncate">أحمد بن علي</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">المشرف العام</span></div></div><a class="p-space-xs rounded-lg text-error hover:bg-error-container hover:text-on-error-container transition-colors" data-path="login-portal" href="#" title="تسجيل الخروج"><span class="material-symbols-outlined text-[20px]">logout</span></a></div></div></aside><div class="pr-72"><header class="fixed top-0 left-0 right-72 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.2)] z-40 px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-0"><div class="flex items-center gap-space-xs text-primary font-body-md text-body-md"><span class="material-symbols-outlined text-primary text-[20px]">storefront</span><span class="font-headline-md text-headline-md text-on-surface whitespace-nowrap">محل فون إكسبريس - الجزائر العاصمة</span></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-high rounded-full"><span class="material-symbols-outlined text-secondary text-[16px]">calendar_today</span><span class="font-label-sm text-label-sm text-on-surface-variant">الثلاثاء، 24 أكتوبر 2024</span></div><div class="hidden lg:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-high rounded-full"><span class="w-2 h-2 rounded-full bg-primary"></span><span class="font-label-sm text-label-sm text-on-surface">متصل بالسحابة</span></div></div><div class="flex items-center gap-space-sm flex-1 max-w-lg mx-space-sm"><div class="w-full flex items-center bg-surface-container-lowest rounded-lg px-space-sm py-space-xs text-on-surface-variant focus-within:ring-1 focus-within:ring-primary"><span class="material-symbols-outlined text-[18px] ml-space-xs">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" placeholder="البحث عن هاتف، زبون، فاتورة، IMEI..." type="text"/><span class="font-label-sm text-label-sm bg-surface-container px-space-xs rounded text-outline">Ctrl+K</span></div></div><div class="flex items-center gap-space-xs shrink-0"><button class="hidden sm:flex items-center gap-space-xs bg-primary text-on-primary px-space-sm py-space-xs rounded-lg font-label-md text-label-md hover:bg-primary-fixed-dim transition-colors"><span class="material-symbols-outlined text-[18px]">add_shopping_cart</span><span>+ بيع سريع</span></button><button class="hidden sm:flex items-center gap-space-xs bg-secondary-container text-on-secondary-container px-space-sm py-space-xs rounded-lg font-label-md text-label-md hover:bg-secondary transition-colors"><span class="material-symbols-outlined text-[18px]">handyman</span><span>+ استلام صيانة</span></button><button class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 left-1 w-4 h-4 bg-error text-on-error font-label-sm text-label-sm rounded-full flex items-center justify-center font-bold">3</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Interactive State Manager Script -->
+<script>
+    function switchTab(tabId) {
+      const tab1 = document.getElementById('view-channels');
+      const tab2 = document.getElementById('view-posts');
+      const btn1 = document.getElementById('btn-tab-channels');
+      const btn2 = document.getElementById('btn-tab-posts');
+
+      if (tabId === 'channels') {
+        tab1.classList.remove('hidden');
+        tab2.classList.add('hidden');
+        btn1.className = 'flex items-center gap-space-xs px-space-md py-space-sm bg-primary text-on-primary font-headline-md text-headline-md rounded-xl shadow-md transition-all';
+        btn2.className = 'flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container text-on-surface-variant hover:text-on-surface font-headline-md text-headline-md rounded-xl transition-all';
+      } else {
+        tab1.classList.add('hidden');
+        tab2.classList.remove('hidden');
+        btn2.className = 'flex items-center gap-space-xs px-space-md py-space-sm bg-primary text-on-primary font-headline-md text-headline-md rounded-xl shadow-md transition-all';
+        btn1.className = 'flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container text-on-surface-variant hover:text-on-surface font-headline-md text-headline-md rounded-xl transition-all';
+      }
+    }
+
+    function toggleModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal.classList.contains('hidden')) {
+        modal.classList.remove('hidden');
+      } else {
+        modal.classList.add('hidden');
+      }
+    }
+
+    function filterPosts(status, btnElement) {
+      const rows = document.querySelectorAll('.post-row');
+      const buttons = document.querySelectorAll('.filter-btn');
+      
+      buttons.forEach(b => {
+        b.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-semibold');
+        b.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+      });
+      btnElement.classList.add('bg-primary-container', 'text-on-primary-container', 'font-semibold');
+      btnElement.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+
+      rows.forEach(r => {
+        if (status === 'all') {
+          r.classList.remove('hidden');
+        } else if (r.getAttribute('data-status') === status) {
+          r.classList.remove('hidden');
+        } else {
+          r.classList.add('hidden');
+        }
+      });
+    }
+
+    function triggerToast(message) {
+      const toast = document.getElementById('toast-feedback');
+      const msgElem = document.getElementById('toast-msg');
+      msgElem.innerText = message;
+      toast.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-2');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
+      }, 3500);
+    }
+  </script>
+<!-- Ambient Glow Decoration -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-32 left-1/4 w-96 h-96 bg-secondary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -top-20 right-10 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Page Header & Tab Bar -->
+<div class="px-margin pt-space-lg pb-space-md flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[28px]">send</span>
+<span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">PhoneHub Automated Bot Suite v4.2</span>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="font-headline-xl text-headline-xl text-on-surface">إدارة قنوات وتيليجرام بوت</span>
+<div class="flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-high rounded-full">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary">Webhook نشط (استجابة: 24ms)</span>
+</div>
+</div>
+</div>
+<!-- Main Navigation Tabs -->
+<div class="flex items-center gap-space-xs p-1.5 bg-surface-container-low rounded-2xl shadow-sm shrink-0">
+<button class="flex items-center gap-space-xs px-space-md py-space-sm bg-primary text-on-primary font-headline-md text-headline-md rounded-xl shadow-md transition-all" id="btn-tab-channels" onclick="switchTab('channels')">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+<span>القنوات والبوتات المرتبطة</span>
+<span class="px-space-xs py-0.5 bg-on-primary/20 text-on-primary font-label-sm text-label-sm rounded-full">3 متصلة</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container text-on-surface-variant hover:text-on-surface font-headline-md text-headline-md rounded-xl transition-all" id="btn-tab-posts" onclick="switchTab('posts')">
+<span class="material-symbols-outlined text-[20px]">campaign</span>
+<span>سجل المنشورات والعروض</span>
+<span class="px-space-xs py-0.5 bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm rounded-full">148 منشور</span>
+</button>
+</div>
+</div>
+<!-- MAIN BODY CONTENT -->
+<div class="px-margin pb-space-xl">
+<!-- ============================================== -->
+<!-- VIEW 1: CHANNELS & BOT CONFIGURATION -->
+<!-- ============================================== -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg" id="view-channels">
+<!-- Channels Main Area (8 cols) -->
+<div class="xl:col-span-8 flex flex-col gap-space-lg">
+<!-- Top Telemetry & Quick Action Bar -->
+<div class="bg-surface-container-low p-space-md rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-md w-full sm:w-auto">
+<div class="w-12 h-12 rounded-xl bg-secondary-container/20 flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[28px]">sensors</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-md text-headline-md text-on-surface">خادم المزامنة التلقائية (Instant Sync)</span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">ربط متواصل مع نقطة البيع (POS) - تحديث المخزون وشارات النفاد فورياً</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full sm:w-auto justify-end">
+<button class="p-space-xs px-space-sm bg-surface-container-high hover:bg-surface-bright text-on-surface rounded-xl font-label-md text-label-md flex items-center gap-space-xs transition-colors" onclick="triggerToast('تمت إعادة مزامنة جميع اتصالات Webhook بنجاح!')">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+<span>فحص البوتات</span>
+</button>
+<button class="p-space-xs px-space-md bg-primary hover:bg-primary-fixed-dim text-on-primary rounded-xl font-label-md text-label-md flex items-center gap-space-xs transition-colors shadow-sm" onclick="toggleModal('modal-add-channel')">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>+ ربط قناة أو مجموعة جديدة</span>
+</button>
+</div>
+</div>
+<!-- Active Channels Stream -->
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-on-surface">القنوات والمنصات الترويجية المعتمدة (3)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">آخر تفاعل مسجل: منذ 4 دقائق</span>
+</div>
+<!-- Channel Card 1: Official Main Channel -->
+<div class="bg-surface-container p-space-md rounded-2xl flex flex-col gap-space-md shadow-sm transition-all hover:bg-surface-container-high/60">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="relative w-14 h-14 rounded-2xl overflow-hidden shrink-0 bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="Official high-tech neon branding logo for PhoneHub mobile retail store in Algiers, glowing emerald and cyan circuit accents on deep slate background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX7t9PvBEmlx82KCutzPgOYG1y7nw1MUWCS1drtOe08Pser7uT3PXv-fTT1CwuBkw0gSv3Zv3McjxnT7uEaqoqw7a115zllrIg54nGZClVB6fR9t2UmvG76gsiI68Efimwz2HwD4WL_3C4nRQR8AXuTbSRD8D-Bne4B-qjluO56TjT1Qagy9JKMmiubjQSTkDTzZI8oLbu3OstwqQaHUcNXpIwXhgWLBWqadyFi1PG04vtk9nJNaLs"/>
+<div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-primary rounded-full ring-2 ring-surface-container"></div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-headline-md text-headline-md text-on-surface truncate font-semibold">عروض PhoneHub الجزائر الرسمية (باب الزوار)</span>
+<span class="px-space-xs py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm font-bold">قناة عامة</span>
+</div>
+<div class="flex items-center gap-space-sm mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="font-label-md text-label-md text-secondary font-semibold" dir="ltr">@PhoneHub_DZ</span>
+<span>•</span>
+<span class="text-on-surface">ID: -1001928374921</span>
+<span>•</span>
+<span class="text-primary font-bold">14,850 مشترك</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs self-end sm:self-center">
+<button class="flex items-center gap-space-xs px-space-sm py-1.5 bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface rounded-xl font-label-sm text-label-sm transition-colors" onclick="triggerToast('جاري إرسال إشعار اختباري عبر Bot API إلى @PhoneHub_DZ... تم بنجاح!')">
+<span class="material-symbols-outlined text-[16px] text-secondary">send</span>
+<span>رسالة تجريبية</span>
+</button>
+<button class="p-1.5 bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface rounded-xl transition-colors" onclick="triggerToast('فتح لوحة تصاريح وتعيين بوت @PhoneHub_DZ')">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Badges & Active Automation Permissions -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-xs pt-space-xs bg-surface-container-lowest/60 p-space-sm rounded-xl">
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold">نشر آلي للمنتجات الجديدة</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">مباشرة عند الإضافة للمخزن</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary">price_change</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold">تحديث الأسعار التلقائي</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">تعديل رسالة المنشور الحالية</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-tertiary">notification_important</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold text-tertiary">شارة بيع [SOLD OUT]</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">عند بيع آخر قطعة في الكاسة</span>
+</div>
+</div>
+</div>
+<!-- Channel Analytics Ribbon -->
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm px-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">visibility</span>
+<span>متوسط المشاهدات: 3,420 / منشور</span>
+</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">sell</span>
+<span>عروض منشورة اليوم: 6 هواتف</span>
+</span>
+<span class="text-outline">مدعوم ببوت المشرف @PhoneHubAdminBot</span>
+</div>
+</div>
+<!-- Channel Card 2: Used / Kaba VIP Phones -->
+<div class="bg-surface-container p-space-md rounded-2xl flex flex-col gap-space-md shadow-sm transition-all hover:bg-surface-container-high/60">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="relative w-14 h-14 rounded-2xl overflow-hidden shrink-0 bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="Luxury sleek black and gold smartphone display emblem for VIP used European phone stocks with tech background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0wADYMV-9MCQChzarv0ISiPicvZ0elXKuB9PICOmVox1CLTM12-hNBSyJ-RIQ6tQsQssq-kuG90ur8YbZajh3LtjYNukpx7l1-nqKbT2KdLtbKhc_76Y_1-Huv4odmN-WaKO8xpKOpRakNBGmHUmc-5MSZ7P-o2QsI9cd2mbnBaTKra0ElHLgrcS856wuGBWULgb74XMD1SXJA8TLJVe8wT7Usw2glr0Z4wqzxx5xH-h4y-BzM1M0"/>
+<div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-primary rounded-full ring-2 ring-surface-container"></div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-headline-md text-headline-md text-on-surface truncate font-semibold">عروض هواتف كابة ومستعملة VIP (ضمان 3 أشهر)</span>
+<span class="px-space-xs py-0.5 rounded-full bg-tertiary-container/20 text-tertiary font-label-sm text-label-sm font-bold">قناة خاصة</span>
+</div>
+<div class="flex items-center gap-space-sm mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="font-label-md text-label-md text-secondary font-semibold" dir="ltr">@PhoneHub_Kaba_VIP</span>
+<span>•</span>
+<span class="text-on-surface">ID: -1002019485721</span>
+<span>•</span>
+<span class="text-tertiary font-bold">3,200 مشترك</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs self-end sm:self-center">
+<button class="flex items-center gap-space-xs px-space-sm py-1.5 bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface rounded-xl font-label-sm text-label-sm transition-colors" onclick="triggerToast('جاري إرسال رسالة تجريبية إلى قناة VIP... ناجحة!')">
+<span class="material-symbols-outlined text-[16px] text-secondary">send</span>
+<span>رسالة تجريبية</span>
+</button>
+<button class="p-1.5 bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface rounded-xl transition-colors" onclick="triggerToast('فتح إعدادات قناة VIP')">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Badges & Active Automation Permissions -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-xs pt-space-xs bg-surface-container-lowest/60 p-space-sm rounded-xl">
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold">إرفاق تقرير فحص البطارية</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">نسبة البطارية + بلد المنشأ</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold">تضمين صور حقيقية للقطعة</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">مأخوذة من كاميرا المحل</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-tertiary">notification_important</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold text-tertiary">حجز مؤقت (Reserve)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">تحديث المنشور لـ «محجوز بالدفعة»</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm px-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">visibility</span>
+<span>متوسط المشاهدات: 1,890 / منشور</span>
+</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">verified</span>
+<span>التحويل التلقائي لزبائن BaridiMob مفعل</span>
+</span>
+<span class="text-outline">البوت: @PhoneHubAdminBot</span>
+</div>
+</div>
+<!-- Channel Card 3: Technicians & Maintenance Group -->
+<div class="bg-surface-container p-space-md rounded-2xl flex flex-col gap-space-md shadow-sm transition-all hover:bg-surface-container-high/60">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="relative w-14 h-14 rounded-2xl overflow-hidden shrink-0 bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="Technical repair workshop icon with microprocessor, soldering iron and phone screens in electric cyan and slate gray" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc5UpI1zFhpUOhbPgiI5Nlq-UsE-S-DbWkZ9n1BU8Dl1ih2TtADH_8sEM3dbyZzF5TvOscAd9mNyMC06WJZ6c_N-Au7QkE_bsbI7sURfY9-CtRUP3K11bIVTN7mU_YhHWp3j-Hm6qjhvyRQ9XsMzLWyZUmMtXEeD5obRkQJ3YNR0aEZ1aSOYNuAoFR1nv4b4V2ETa6fwrq_jtQdSig7ZJOUJrJtliVVeb9Pby_-Wybr44zO-t6S9Ug"/>
+<div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-primary rounded-full ring-2 ring-surface-container"></div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-headline-md text-headline-md text-on-surface truncate font-semibold">مجموعة فنيي الصيانة وقطع الغيار الداخلية</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-bold">مجموعة خاصة</span>
+</div>
+<div class="flex items-center gap-space-sm mt-0.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="font-label-md text-label-md text-secondary font-semibold" dir="ltr">@PhoneHub_Workshop_Staff</span>
+<span>•</span>
+<span class="text-on-surface">ID: -1008892716301</span>
+<span>•</span>
+<span class="text-secondary font-bold">8 فنيين ومشرفين</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs self-end sm:self-center">
+<button class="flex items-center gap-space-xs px-space-sm py-1.5 bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface rounded-xl font-label-sm text-label-sm transition-colors" onclick="triggerToast('تم إرسال إشعار تجريبي لمجموعة الفنيين!')">
+<span class="material-symbols-outlined text-[16px] text-secondary">send</span>
+<span>رسالة تجريبية</span>
+</button>
+<button class="p-1.5 bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface rounded-xl transition-colors" onclick="triggerToast('فتح إعدادات إشعارات الصيانة')">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Badges & Active Automation Permissions -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-xs pt-space-xs bg-surface-container-lowest/60 p-space-sm rounded-xl">
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-secondary">handyman</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold">تنبيهات استلام أجهزة معقدة</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">أجهزة فك iCloud / صيانة بوردات</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-tertiary">warning</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold">نقص شاشات وقطع أصلية</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">تنبيه عند بقاء أقل من قطعتين</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary">done_all</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold">إشعار انتهاء الإصلاح</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">جاهز لتسليم الزبون في الكاونتر</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bot Settings & Fast Dispatch Panel (4 cols) -->
+<div class="xl:col-span-4 flex flex-col gap-space-lg">
+<!-- Bot Core Configuration Card -->
+<div class="bg-surface-container p-space-lg rounded-2xl flex flex-col gap-space-md shadow-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[22px]">smart_toy</span>
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">إعدادات البوت والرموز (Bot Token)</span>
+</div>
+<span class="px-space-xs py-0.5 rounded-full bg-primary-container/20 text-primary font-label-sm text-label-sm">Active API</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<label class="font-label-sm text-label-sm text-on-surface-variant">معرّف البوت السري (Bot Token):</label>
+<div class="flex items-center bg-surface-container-lowest rounded-xl p-space-xs px-space-sm text-on-surface focus-within:ring-1 focus-within:ring-primary">
+<span class="material-symbols-outlined text-outline text-[18px] ml-space-xs">key</span>
+<input class="w-full bg-transparent font-label-md text-label-md text-on-surface tracking-wider focus:outline-none" readonly="" type="password" value="7182938472:AAFHkjwe82_398kdsa891jdLKsd90"/>
+<button class="p-1 hover:text-primary transition-colors text-on-surface-variant" onclick="triggerToast('تم نسخ رمز البوت إلى الحافظة!')" title="نسخ الرمز">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-space-sm">
+<label class="font-label-sm text-label-sm text-on-surface-variant">معرّف المشرف الأساسي (Admin Telegram ID):</label>
+<div class="flex items-center bg-surface-container-lowest rounded-xl p-space-xs px-space-sm text-on-surface">
+<span class="material-symbols-outlined text-outline text-[18px] ml-space-xs">badge</span>
+<input class="w-full bg-transparent font-label-md text-label-md text-on-surface focus:outline-none" readonly="" type="text" value="984729104 (أحمد بن علي)"/>
+</div>
+</div>
+<div class="flex flex-col gap-space-sm">
+<label class="font-label-sm text-label-sm text-on-surface-variant">رسالة الرد التلقائي السريع للزبائن (/start):</label>
+<textarea class="w-full bg-surface-container-lowest rounded-xl p-space-sm text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary resize-none" rows="3">مرحباً بك في PhoneHub Pro الجزائر 📱🇩🇿
+نحن متواجدون في باب الزوار، الجزائر العاصمة. 
+للطلب والاستفسار أو الدفع عبر BaridiMob تواصل مع الإدارة مباشرة عبر @PhoneHub_DZ_Sales أو اتصل بنا: 0550123456</textarea>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<div class="flex items-center justify-between p-space-xs px-space-sm bg-surface-container-high rounded-xl">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">bolt</span>
+<span class="font-body-sm text-body-sm text-on-surface">النشر الفوري المباشر من الكاسة</span>
+</div>
+<input checked="" class="w-4 h-4 accent-primary rounded cursor-pointer" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between p-space-xs px-space-sm bg-surface-container-high rounded-xl">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">qr_code</span>
+<span class="font-body-sm text-body-sm text-on-surface">تضمين رابط الدفع السريع BaridiMob</span>
+</div>
+<input checked="" class="w-4 h-4 accent-primary rounded cursor-pointer" type="checkbox"/>
+</div>
+</div>
+<button class="w-full mt-space-xs py-space-sm bg-primary hover:bg-primary-fixed-dim text-on-primary font-headline-md text-headline-md rounded-xl shadow-md transition-colors flex items-center justify-center gap-space-xs" onclick="triggerToast('تم حفظ وتحديث إعدادات البوت والردود التلقائية بنجاح!')">
+<span class="material-symbols-outlined text-[20px]">save</span>
+<span>حفظ الإعدادات</span>
+</button>
+</div>
+<!-- Quick Post Composer Drawer (Widget) -->
+<div class="bg-surface-container p-space-lg rounded-2xl flex flex-col gap-space-md shadow-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-tertiary-container/20 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">post_add</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">نشر عرض فوري على القناة</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant">اختر الجهاز من المخزون الحالي:</label>
+<select class="w-full bg-surface-container-lowest rounded-xl p-space-sm font-body-sm text-body-sm text-on-surface focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer">
+<option>iPhone 15 Pro Max - 256GB تيتانيوم طبيعي (متوفر 4 قطع)</option>
+<option>Samsung Galaxy S24 Ultra - 512GB رمادي (متوفر 2 قطع)</option>
+<option>Google Pixel 8 Pro - 128GB كابة كالسليم (متوفر 1 قطعة)</option>
+<option>Xiaomi 14 Ultra - 512GB تصوير احترافي (متوفر 3 قطع)</option>
+</select>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant">القناة المستهدفة للنشر:</label>
+<select class="w-full bg-surface-container-lowest rounded-xl p-space-sm font-body-sm text-body-sm text-on-surface focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer">
+<option>عروض PhoneHub الجزائر الرسمية (@PhoneHub_DZ)</option>
+<option>عروض أجهزة كابة ومستعملة VIP (@PhoneHub_Kaba_VIP)</option>
+<option>كلا القناتين معاً (نشر مزدوج)</option>
+</select>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant">السعر الترويجي المقترح (دج):</label>
+<div class="flex items-center bg-surface-container-lowest rounded-xl p-space-xs px-space-sm">
+<input class="w-full bg-transparent font-label-lg text-label-lg text-primary font-bold focus:outline-none" type="text" value="218,000"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant mr-space-xs">د.ج (DZD)</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant">وصف تسويقي مخصص ومميزات:</label>
+<textarea class="w-full bg-surface-container-lowest rounded-xl p-space-sm text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary resize-none" placeholder="اكتب عبارات تشجيعية مع ملحقات الهدية والضمان..." rows="3">🔥 عرض الأسبوع الحصري لدى فون هاب!
+الجهاز بحالة الوكالة مع علبته الأصلية وشاحن سريع 20W مجاني + زجاج حماية مع ضمان متجرنا لمدة 6 أشهر كاملة. التوصيل متوفر لـ 58 ولاية والدفع عند الاستلام!</textarea>
+</div>
+<button class="w-full py-space-sm bg-secondary-container hover:bg-secondary text-on-secondary-container font-headline-md text-headline-md rounded-xl transition-colors flex items-center justify-center gap-space-xs shadow-md" onclick="triggerToast('تم إرسال المنشور الترويجي إلى قناة تيليجرام بنجاح!')">
+<span class="material-symbols-outlined text-[20px]">rocket_launch</span>
+<span>نشر العرض فوراً الآن</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ============================================== -->
+<!-- VIEW 2: POSTS HISTORY & ACTIVE CATALOG -->
+<!-- ============================================== -->
+<div class="hidden flex flex-col gap-space-lg" id="view-posts">
+<!-- Filter and Search Header -->
+<div class="bg-surface-container p-space-md rounded-2xl flex flex-col md:flex-row items-center justify-between gap-space-md shadow-sm">
+<!-- Category Chips -->
+<div class="flex items-center gap-space-xs flex-wrap w-full md:w-auto">
+<button class="filter-btn px-space-md py-1.5 rounded-xl font-label-md text-label-md bg-primary-container text-on-primary-container font-semibold transition-all" onclick="filterPosts('all', this)">
+              جميع المنشورات (148)
+            </button>
+<button class="filter-btn px-space-md py-1.5 rounded-xl font-label-md text-label-md bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all" onclick="filterPosts('available', this)">
+              متوفر حالياً بالمتجر (84)
+            </button>
+<button class="filter-btn px-space-md py-1.5 rounded-xl font-label-md text-label-md bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all" onclick="filterPosts('soldout', this)">
+              تم البيع Sold Out (59)
+            </button>
+<button class="filter-btn px-space-md py-1.5 rounded-xl font-label-md text-label-md bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all" onclick="filterPosts('scheduled', this)">
+              مجدولة لاحقاً (5)
+            </button>
+</div>
+<!-- Search Input for Posts -->
+<div class="flex items-center gap-space-sm w-full md:w-80">
+<div class="w-full flex items-center bg-surface-container-lowest rounded-xl px-space-sm py-1.5 text-on-surface-variant focus-within:ring-1 focus-within:ring-primary">
+<span class="material-symbols-outlined text-[18px] ml-space-xs">search</span>
+<input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" placeholder="البحث برقم المنشور، اسم الهاتف أو السعر..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Catalog Posts Table / List Grid -->
+<div class="bg-surface-container rounded-2xl overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-right border-collapse">
+<thead>
+<tr class="bg-surface-container-high text-on-surface-variant font-label-md text-label-md border-b border-surface-container-highest">
+<th class="py-space-md px-space-md">المنتج والتفاصيل التسويقية</th>
+<th class="py-space-md px-space-md">القناة المنشور فيها</th>
+<th class="py-space-md px-space-md">السعر المعلن</th>
+<th class="py-space-md px-space-md">التفاعل والمشاهدات</th>
+<th class="py-space-md px-space-md">حالة توفر الجهاز</th>
+<th class="py-space-md px-space-md text-left">إجراءات البوت</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-highest/50">
+<!-- Row 1: iPhone 15 Pro Max (Available) -->
+<tr class="post-row hover:bg-surface-container-high/40 transition-colors" data-status="available">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-16 h-16 rounded-xl overflow-hidden shrink-0 bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="High quality studio photo of an iPhone 15 Pro Max titanium grey lying on a futuristic dark slate surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ083nKIJ7zEqgVijxxl52LoD59lzug9awNZboMTEPUjBLGKWUnhHE-uc_X8TIEyFsgecim4rtJ5Job6w2Hj8sChfH3ytMfwibqPrxzUNBRvis7idNIgKNjhWIBdANh0np6pklgfDbmXRqRui76f2fldYHF-tG8PATgDpZutqtuonVxMdAQhR9qB-qI365Jf22zRzHOCgyOHxk8XPAo86NErhBQcR8z_wuDcj34pGydKlxayfUrNVL"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold truncate">iPhone 15 Pro Max 256GB تيتانيوم أزرق</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">جديد بالعلبة مع ضمان 12 شهر - شاحن مجاني أصلي من المتجر</span>
+<div class="flex items-center gap-space-xs mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] text-outline">schedule</span>
+<span>نُشر: اليوم 14:22</span>
+<span>•</span>
+<span class="text-secondary font-mono" dir="ltr">Post #TG-9402</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="px-space-xs py-1 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center gap-1 w-max">
+<span class="material-symbols-outlined text-[14px] text-secondary">forum</span>
+<span>@PhoneHub_DZ</span>
+</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary font-bold">234,000 دج</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">الدفع عند الاستلام</span>
+</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1 text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>4,820</span>
+</div>
+<div class="flex items-center gap-1 text-tertiary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">thumb_up</span>
+<span>312</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>متوفر في المتجر (3 قطع)</span>
+</span>
+</td>
+<td class="py-space-md px-space-md text-left whitespace-nowrap">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="p-space-xs rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface transition-colors" onclick="triggerToast('فتح محرر المنشور المباشر على تيليجرام')" title="تعديل المنشور فورياً">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+</button>
+<button class="p-space-xs rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-secondary transition-colors" onclick="triggerToast('تمت إعادة إرسال المنشور إلى رأس القناة!')" title="إعادة النشر (Bump)">
+<span class="material-symbols-outlined text-[18px]">reply</span>
+</button>
+<button class="p-space-xs rounded-xl bg-surface-container-high hover:bg-error-container hover:text-on-error-container text-on-surface-variant transition-colors" onclick="triggerToast('تم إرسال أمر وضع شارة SOLD OUT للمنشور!')" title="وضع شارة نفدت الكمية يدويًا">
+<span class="material-symbols-outlined text-[18px]">remove_shopping_cart</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Samsung S23 Ultra (SOLD OUT) -->
+<tr class="post-row hover:bg-surface-container-high/40 transition-colors" data-status="soldout">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-md">
+<div class="relative w-16 h-16 rounded-xl overflow-hidden shrink-0 bg-surface-container-lowest">
+<img class="w-full h-full object-cover filter grayscale contrast-125" data-alt="Dark green Samsung Galaxy S23 Ultra phone on a brushed metal workbench with stylus accessory" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6M4ThmxR50JC8bY_R2lj0PjSy1UgsPPaorwiIGDqCXrfQfwnESPGSNWnVaSdOUVYp3vB5sTbu9b2KIbkD42WPpKNwRYCkpLbhzQNTwJ2Ts4ouP_YFZ7b04aQCTDD6o9IZjiLgFJ5HJKQ6uokKMk2-QxL-pUAkdX9Kvyanhj07TwiDV88rTeaF5BxitQUaj6_m-Jxoz0RVp0xFl_IH8126Dx_2OLQ-KmJSon-UEhXu_t6tyRhNfVs1"/>
+<div class="absolute inset-0 bg-error/20 flex items-center justify-center">
+<span class="px-1 py-0.5 bg-error text-on-error font-label-sm text-label-sm font-bold rounded">SOLD</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-headline-md text-on-surface-variant font-semibold truncate line-through">Samsung Galaxy S23 Ultra 512GB أخضر كابة</span>
+<span class="font-body-sm text-body-sm text-outline line-clamp-1">حالة 10/10 بطارية 98% أصلي ضمان فحص 3 أشهر</span>
+<div class="flex items-center gap-space-xs mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] text-outline">schedule</span>
+<span>نُشر: أمس 19:10</span>
+<span>•</span>
+<span class="text-secondary font-mono" dir="ltr">Post #TG-9388</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="px-space-xs py-1 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center gap-1 w-max">
+<span class="material-symbols-outlined text-[14px] text-tertiary">diamond</span>
+<span>@PhoneHub_Kaba_VIP</span>
+</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface-variant line-through font-bold">148,000 دج</span>
+<span class="font-label-sm text-label-sm text-error">بيع في المحل عبر POS</span>
+</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1 text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>2,950</span>
+</div>
+<div class="flex items-center gap-1 text-tertiary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">thumb_up</span>
+<span>184</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-full bg-error-container/40 text-error font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span>تم البيع (تحديث آلي بالبوت)</span>
+</span>
+</td>
+<td class="py-space-md px-space-md text-left whitespace-nowrap">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="p-space-xs rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface transition-colors" onclick="triggerToast('تعديل الرسالة المحدثة على القناة')" title="عرض التعديل">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-space-xs rounded-xl bg-surface-container-high hover:bg-error-container hover:text-on-error text-on-surface-variant transition-colors" onclick="triggerToast('تم حذف المنشور من القناة نهائياً عبر البوت')" title="حذف المنشور">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Google Pixel 8 Pro (Available) -->
+<tr class="post-row hover:bg-surface-container-high/40 transition-colors" data-status="available">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-16 h-16 rounded-xl overflow-hidden shrink-0 bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="Google Pixel 8 Pro bay blue color displayed gracefully against a dark reflective glass showcase" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW0Qs18dw4XjHPTPut6pv3ULDF1Ji2_doQ1ODWnitEN_ABMxpTPCz02-VZfeuVb6Q4lMXCrfqp3E522kkCSN-k085DpMshFXDjOezOnzsoCU30Dl8R-7Ju2LKl6jNNwDZj5u-_j4k63-UHAQUgROJw6IE_J4YYSb4uXvjtKpHZyQsVdoJS6Lv5_-TQFv1FtqbflwyVLq7BWXMP81I-TJFtOVXPXQGETDOom0WJzxY6pb0j0s2HcR9s"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold truncate">Google Pixel 8 Pro 128GB أزرق سماوي</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">كاميرا الذكاء الاصطناعي مع كفر حماية Spigen أصلي مجاناً</span>
+<div class="flex items-center gap-space-xs mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] text-outline">schedule</span>
+<span>نُشر: 22 أكتوبر 11:05</span>
+<span>•</span>
+<span class="text-secondary font-mono" dir="ltr">Post #TG-9351</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="px-space-xs py-1 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center gap-1 w-max">
+<span class="material-symbols-outlined text-[14px] text-secondary">forum</span>
+<span>@PhoneHub_DZ</span>
+</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary font-bold">135,000 دج</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">متوفر تقسيط BaridiMob</span>
+</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1 text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>3,410</span>
+</div>
+<div class="flex items-center gap-1 text-tertiary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">thumb_up</span>
+<span>240</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>متوفر في المتجر (1 قطعة)</span>
+</span>
+</td>
+<td class="py-space-md px-space-md text-left whitespace-nowrap">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="p-space-xs rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface transition-colors" onclick="triggerToast('تعديل النص وسعر المنشور على تيليجرام مباشرة')" title="تعديل المنشور">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+</button>
+<button class="p-space-xs rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-secondary transition-colors" onclick="triggerToast('تمت إعادة إرسال المنشور للتذكير!')" title="إعادة توجيه">
+<span class="material-symbols-outlined text-[18px]">reply</span>
+</button>
+<button class="p-space-xs rounded-xl bg-surface-container-high hover:bg-error-container hover:text-on-error text-on-surface-variant transition-colors" onclick="triggerToast('تحويل المنشور إلى شارة محجوز مؤقتاً')" title="تحديث لـ نفذ">
+<span class="material-symbols-outlined text-[18px]">remove_shopping_cart</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Scheduled Post (Draft/Scheduled) -->
+<tr class="post-row hover:bg-surface-container-high/40 transition-colors" data-status="scheduled">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-16 h-16 rounded-xl overflow-hidden shrink-0 bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="PlayStation 5 Slim console with dual controllers in modern neon shop environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv3aDRwzqJTdEtMNupfFNYczNR1nhVqMya2c_jLQ__tHs29HKrIZ5A17L31C-Aui1OMd6xVTs_TmzFZs7yoN7iAJVcOTkDpinANIawU7KY3DgKWYtcGtfaIjmD4wxx3jyVS3YWCRoykwuyQ5_1ivjIFe8qq4oCiUdBaprhjbauXXKmJha7DE1UwrDqobptGZ6F499Or6z9RGvSu_6mlvZjbRAHi2doF4JmJybwBKJ5gFvFspnxEelq"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold truncate">PlayStation 5 Slim 1TB + يدين أصليتين</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">تخفيض عطلة نهاية الأسبوع - كمية محدودة 10 أجهزة فقط</span>
+<div class="flex items-center gap-space-xs mt-1 text-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">alarm</span>
+<span>مجدول للنشر: الجمعة 09:00 صباحاً</span>
+<span>•</span>
+<span class="text-secondary font-mono" dir="ltr">Queue #TG-9410</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="px-space-xs py-1 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center gap-1 w-max">
+<span class="material-symbols-outlined text-[14px] text-secondary">forum</span>
+<span>@PhoneHub_DZ</span>
+</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-tertiary font-bold">109,000 دج</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">سعر ترويجي مؤقت</span>
+</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="font-label-sm text-label-sm text-outline">في الانتظار (0 مشاهدة)</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-full bg-surface-container-highest text-tertiary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+<span>مجدول آلياً</span>
+</span>
+</td>
+<td class="py-space-md px-space-md text-left whitespace-nowrap">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="px-space-xs py-1 rounded-xl bg-primary hover:bg-primary-fixed-dim text-on-primary font-label-sm text-label-sm flex items-center gap-1 transition-colors" onclick="triggerToast('تم نشر العرض المجدول فورياً دون انتظار الموعد!')">
+<span class="material-symbols-outlined text-[16px]">send</span>
+<span>نشر الآن</span>
+</button>
+<button class="p-space-xs rounded-xl bg-surface-container-high hover:bg-error-container hover:text-on-error text-on-surface-variant transition-colors" onclick="triggerToast('تم إلغاء جدولة المنشور')" title="إلغاء الجدولة">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Bar -->
+<div class="p-space-md bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-sm border-t border-surface-container-highest">
+<span class="font-body-sm text-body-sm text-on-surface-variant">عرض 1 إلى 4 من أصل 148 منشوراً تم بثها على تيليجرام</span>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">السابق</button>
+<button class="px-space-sm py-1 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-bold">1</button>
+<button class="px-space-sm py-1 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">2</button>
+<button class="px-space-sm py-1 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">3</button>
+<button class="px-space-sm py-1 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">التالي</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- MODAL: ADD NEW TELEGRAM CHANNEL -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-space-md bg-surface-container-lowest/80 backdrop-blur-md" id="modal-add-channel">
+<div class="bg-surface-container p-space-lg rounded-2xl w-full max-w-lg flex flex-col gap-space-md shadow-2xl relative">
+<div class="flex items-center justify-between pb-space-xs border-b border-surface-container-highest">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[24px]">add_link</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">ربط قناة أو مجموعة تيليجرام جديدة</span>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface p-1" onclick="toggleModal('modal-add-channel')">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-sm text-body-sm text-on-surface-variant">
+<span class="p-space-xs px-space-sm bg-surface-container-high rounded-xl text-secondary">
+          خطوات سريعة: أضف البوت <strong class="text-on-surface">@PhoneHubAdminBot</strong> كمشرف (Admin) في قناتك أولاً، ثم الصق المعرف هنا.
+        </span>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface">معرف القناة أو الرابط (Channel Username / Link):</label>
+<input class="w-full bg-surface-container-lowest rounded-xl p-space-sm text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary" dir="ltr" placeholder="@YourShopChannel أو https://t.me/joinchat/..." type="text"/>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface">اسم القناة للعرض الداخلي:</label>
+<input class="w-full bg-surface-container-lowest rounded-xl p-space-sm text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary" placeholder="مثال: قناة الهواتف المخفضة - سطيف" type="text"/>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface">الصلاحيات التلقائية:</label>
+<div class="flex flex-col gap-space-xs">
+<label class="flex items-center gap-space-xs text-on-surface cursor-pointer">
+<input checked="" class="w-4 h-4 accent-primary rounded" type="checkbox"/>
+<span>تحديث وحذف الأسعار تلقائياً عند تغييرها في الكاشير</span>
+</label>
+<label class="flex items-center gap-space-xs text-on-surface cursor-pointer">
+<input checked="" class="w-4 h-4 accent-primary rounded" type="checkbox"/>
+<span>وضع شارة SOLD OUT عند انتهاء مخزون القطعة فوراً</span>
+</label>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-md py-space-sm rounded-xl bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-bright transition-colors" onclick="toggleModal('modal-add-channel')">
+          إلغاء
+        </button>
+<button class="px-space-md py-space-sm rounded-xl bg-primary text-on-primary font-headline-md text-headline-md shadow-md hover:bg-primary-fixed-dim transition-colors" onclick="toggleModal('modal-add-channel'); triggerToast('تم التحقق من القناة وإضافتها بنجاح للمزامنة الفورية!');">
+          تأكيد الربط والتحقق
+        </button>
+</div>
+</div>
+</div>
+<!-- Floating Toast Notification -->
+<div class="fixed bottom-6 left-6 z-50 flex items-center gap-space-sm px-space-md py-space-sm bg-surface-container-highest text-on-surface rounded-2xl shadow-2xl opacity-0 pointer-events-none -translate-y-2 transition-all duration-300" id="toast-feedback">
+<div class="w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+<span class="font-body-md text-body-md font-medium" id="toast-msg">رسالة إشعار تيليجرام</span>
+</div>
+</div></main></div></body></html>

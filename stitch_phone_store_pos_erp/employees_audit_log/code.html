@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary": "#00344d", "secondary-fixed-dim": "#89ceff", "on-secondary-container": "#00344e", "on-background": "#dae2fd", "tertiary-fixed-dim": "#ffb95f", "outline-variant": "#3c4a42", "surface-container-lowest": "#060e20", "background": "#0b1326", "surface-container-highest": "#2d3449", "secondary-container": "#00a2e6", "surface-container": "#171f33", "on-tertiary": "#472a00", "on-surface": "#dae2fd", "on-tertiary-fixed-variant": "#653e00", "tertiary-container": "#e29100", "on-tertiary-container": "#523200", "surface": "#0b1326", "on-primary-fixed-variant": "#005236", "on-primary-fixed": "#002113", "primary-fixed": "#6ffbbe", "error": "#ffb4ab", "on-primary-container": "#00422b", "surface-bright": "#31394d", "outline": "#86948a", "on-tertiary-fixed": "#2a1700", "tertiary-fixed": "#ffddb8", "inverse-on-surface": "#283044", "surface-dim": "#0b1326", "on-error-container": "#ffdad6", "primary-container": "#10b981", "surface-tint": "#4edea3", "surface-container-high": "#222a3d", "error-container": "#93000a", "surface-variant": "#2d3449", "on-secondary-fixed": "#001e2f", "primary-fixed-dim": "#4edea3", "secondary-fixed": "#c9e6ff", "secondary": "#89ceff", "on-secondary-fixed-variant": "#004c6e", "inverse-surface": "#dae2fd", "tertiary": "#ffb95f", "surface-container-low": "#131b2e", "primary": "#4edea3", "inverse-primary": "#006c49", "on-error": "#690005", "on-primary": "#003824", "on-surface-variant": "#bbcabf" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xs": "0.25rem", "gutter": "1rem", "space-xl": "2rem", "space-lg": "1.5rem", "space-md": "1rem", "margin": "1.5rem", "space-sm": "0.5rem" }, "fontFamily": { "headline-md": [ "Inter" ], "body-sm": [ "Inter" ], "label-lg": [ "JetBrains Mono" ], "headline-lg": [ "Inter" ], "body-lg": [ "Inter" ], "label-sm": [ "JetBrains Mono" ], "body-md": [ "Inter" ], "label-md": [ "JetBrains Mono" ], "headline-xl": [ "Inter" ] }, "fontSize": { "headline-md": [ "18px", { "lineHeight": "26px", "fontWeight": "600" } ], "body-sm": [ "12px", { "lineHeight": "16px", "fontWeight": "400" } ], "label-lg": [ "14px", { "lineHeight": "20px", "fontWeight": "500" } ], "headline-lg": [ "24px", { "lineHeight": "32px", "fontWeight": "600" } ], "body-lg": [ "16px", { "lineHeight": "24px", "fontWeight": "400" } ], "label-sm": [ "11px", { "lineHeight": "14px", "fontWeight": "500" } ], "body-md": [ "14px", { "lineHeight": "20px", "fontWeight": "400" } ], "label-md": [ "12px", { "lineHeight": "16px", "fontWeight": "500" } ], "headline-xl": [ "32px", { "lineHeight": "40px", "fontWeight": "700" } ] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface select-none antialiased"><aside class="fixed right-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="p-space-md flex items-center gap-space-sm bg-surface-container"><img alt="PhoneHub ERP Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UWlRCIFeyPwmpk_XFhl29FsALAZYZ2QExwnFGAwYpLl5noX2HDoJh00lYtFHGxFDROkjEHQH-3rpiSjrmjAm3HWGNmKSQlTwzc3l6seLEqX0KFEfEE2om71jIE6OqhvIGspgmAXMcY4TV2GwOFATSxql1MU1_M5S4G_dQYlQvjugNhiMAIRw2OiWOFPlJyz-LCMkweo92FuJQzx5p3QSmZ9_DhsicyxoK0PMnrnLhSFtnIQbFEVNAk-38"/><div class="flex flex-col min-w-0"><span class="font-headline-md text-headline-md text-primary tracking-tight truncate">PhoneHub Pro</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">متجر الهواتف والصيانة</span></div></div><div class="px-space-md py-space-sm"><div class="flex items-center justify-between p-space-xs px-space-sm bg-surface-container rounded-lg"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-label-sm text-primary">المحل: مفتوح</span></div><span class="font-label-sm text-label-sm text-on-surface-variant">وهران / الجزائر</span></div></div><nav class="flex flex-col gap-1 px-space-sm py-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="font-body-md text-body-md">الرئيسية</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="pos-terminal" href="#"><span class="font-body-md text-body-md">نقطة البيع (POS)</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="inventory-management" href="#"><span class="font-body-md text-body-md">المنتجات والمخزون</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="repairs-workshop" href="#"><span class="font-body-md text-body-md">ورشة الصيانة والإصلاحات</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="suppliers-and-invoices" href="#"><span class="font-body-md text-body-md">الموردون والفواتير</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="warranty-imei-checker" href="#"><span class="font-body-md text-body-md">فحص الضمان (IMEI)</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="telegram-bot-integration" href="#"><span class="font-body-md text-body-md">تيليجرام بوت</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="finance-and-reports" href="#"><span class="font-body-md text-body-md">المالية والتقارير</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="staff-and-audit-logs" href="#"><span class="font-body-md text-body-md">الموظفون وسجل النشاط</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="system-backup" href="#"><span class="font-body-md text-body-md">النسخ الاحتياطي</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="system-settings" href="#"><span class="font-body-md text-body-md">الإعدادات</span></a></nav></div><div class="p-space-sm flex flex-col gap-space-xs bg-surface-container-lowest"><div class="p-space-sm bg-surface-container rounded-lg flex items-center justify-between"><div class="flex items-center gap-space-xs text-tertiary"><span class="material-symbols-outlined text-[18px]">payments</span><span class="font-label-sm text-label-sm text-on-surface-variant">الصندوق:</span></div><span class="font-label-md text-label-md text-tertiary-fixed font-bold tracking-tight">142,500 دج</span></div><div class="p-space-sm bg-surface-container rounded-lg flex items-center justify-between"><div class="flex items-center gap-space-xs min-w-0"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-on-surface font-semibold truncate">أحمد بن علي</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">المشرف العام</span></div></div><a class="p-space-xs rounded-lg text-error hover:bg-error-container hover:text-on-error-container transition-colors" data-path="login-portal" href="#" title="تسجيل الخروج"><span class="material-symbols-outlined text-[20px]">logout</span></a></div></div></aside><div class="pr-72"><header class="fixed top-0 left-0 right-72 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.2)] z-40 px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-0"><div class="flex items-center gap-space-xs text-primary font-body-md text-body-md"><span class="material-symbols-outlined text-primary text-[20px]">storefront</span><span class="font-headline-md text-headline-md text-on-surface whitespace-nowrap">محل فون إكسبريس - الجزائر العاصمة</span></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-high rounded-full"><span class="material-symbols-outlined text-secondary text-[16px]">calendar_today</span><span class="font-label-sm text-label-sm text-on-surface-variant">الثلاثاء، 24 أكتوبر 2024</span></div><div class="hidden lg:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-high rounded-full"><span class="w-2 h-2 rounded-full bg-primary"></span><span class="font-label-sm text-label-sm text-on-surface">متصل بالسحابة</span></div></div><div class="flex items-center gap-space-sm flex-1 max-w-lg mx-space-sm"><div class="w-full flex items-center bg-surface-container-lowest rounded-lg px-space-sm py-space-xs text-on-surface-variant focus-within:ring-1 focus-within:ring-primary"><span class="material-symbols-outlined text-[18px] ml-space-xs">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" placeholder="البحث عن هاتف، زبون، فاتورة، IMEI..." type="text"/><span class="font-label-sm text-label-sm bg-surface-container px-space-xs rounded text-outline">Ctrl+K</span></div></div><div class="flex items-center gap-space-xs shrink-0"><button class="hidden sm:flex items-center gap-space-xs bg-primary text-on-primary px-space-sm py-space-xs rounded-lg font-label-md text-label-md hover:bg-primary-fixed-dim transition-colors"><span class="material-symbols-outlined text-[18px]">add_shopping_cart</span><span>+ بيع سريع</span></button><button class="hidden sm:flex items-center gap-space-xs bg-secondary-container text-on-secondary-container px-space-sm py-space-xs rounded-lg font-label-md text-label-md hover:bg-secondary transition-colors"><span class="material-symbols-outlined text-[18px]">handyman</span><span>+ استلام صيانة</span></button><button class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 left-1 w-4 h-4 bg-error text-on-error font-label-sm text-label-sm rounded-full flex items-center justify-center font-bold">3</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="p-margin space-y-space-lg">
+<!-- Top Action / Header Area -->
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md bg-surface-container-low p-space-lg rounded-xl shadow-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="p-space-xs rounded-lg bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">badge</span>
+</span>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">إدارة طاقم العمل وسجل العمليات</h1>
+<span class="font-label-sm text-label-sm px-space-sm py-0.5 rounded-full bg-surface-container-high text-secondary">Employees &amp; Audit Log</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+          إدارة صلاحيات المستخدمين، متابعة مبيعات الفنيين والبائعين، والرقابة الكاملة على العمليات الحساسة في محلات PhoneHub Pro.
+        </p>
+</div>
+<div class="flex items-center gap-space-sm self-start xl:self-center shrink-0">
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">file_download</span>
+<span>تصدير سجل الرقابة (CSV/PDF)</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-fixed-dim transition-all shadow-md">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+<span>+ إضافة موظف جديد</span>
+</button>
+</div>
+</div>
+<!-- 4 KPI Metrical Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Card 1: Total Staff -->
+<div class="p-space-md bg-surface-container-low rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">إجمالي الطاقم المسجل</span>
+<div class="flex items-baseline gap-space-xs mt-space-xs">
+<span class="font-headline-xl text-headline-xl text-on-surface font-bold">8</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">موظفين</span>
+</div>
+</div>
+<span class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">groups</span>
+</span>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-sm bg-surface-container-lowest/50 -mx-space-md -mb-space-md px-space-md py-space-xs rounded-b-xl">
+<div class="flex items-center gap-space-xs text-primary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+<span>6 متواجدون الآن</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">2 في عطلة / راحة</span>
+</div>
+</div>
+<!-- Card 2: Sales Leader -->
+<div class="p-space-md bg-surface-container-low rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">أعلى مبيعات اليوم (بائع)</span>
+<div class="flex items-baseline gap-space-xs mt-space-xs">
+<span class="font-headline-lg text-headline-lg text-tertiary font-bold tracking-tight">348,500</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">د.ج</span>
+</div>
+</div>
+<span class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[20px]">point_of_sale</span>
+</span>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-sm bg-surface-container-lowest/50 -mx-space-md -mb-space-md px-space-md py-space-xs rounded-b-xl">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold truncate">أحمد بن علي (مشرف)</span>
+<span class="font-label-sm text-label-sm text-primary">14 فاتورة بيع</span>
+</div>
+</div>
+<!-- Card 3: Repairs Completed -->
+<div class="p-space-md bg-surface-container-low rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">صيانة منجزة اليوم (فني)</span>
+<div class="flex items-baseline gap-space-xs mt-space-xs">
+<span class="font-headline-xl text-headline-xl text-secondary font-bold">7</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">أجهزة مكتملة</span>
+</div>
+</div>
+<span class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">build_circle</span>
+</span>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-sm bg-surface-container-lowest/50 -mx-space-md -mb-space-md px-space-md py-space-xs rounded-b-xl">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold truncate">مراد بلقاسم (فني رئيسي)</span>
+<span class="font-label-sm text-label-sm text-secondary">100% ضمان فحص</span>
+</div>
+</div>
+<!-- Card 4: Security Alerts -->
+<div class="p-space-md bg-surface-container-low rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">تنبيهات أمنية ورقابية</span>
+<div class="flex items-baseline gap-space-xs mt-space-xs">
+<span class="font-headline-xl text-headline-xl text-error font-bold">1</span>
+<span class="font-label-sm text-label-sm text-error">عملية معلقة للمراجعة</span>
+</div>
+</div>
+<span class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[20px]">security</span>
+</span>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-sm bg-surface-container-lowest/50 -mx-space-md -mb-space-md px-space-md py-space-xs rounded-b-xl">
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">0 دخول غير مصرح به</span>
+<span class="font-label-sm text-label-sm text-error font-semibold">حذف سند معتمد</span>
+</div>
+</div>
+</div>
+<!-- Section: Staff & Role Management -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-md flex flex-col gap-space-md">
+<!-- Search & Filters Toolbar -->
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-sm">
+<div class="flex flex-1 items-center gap-space-xs bg-surface-container-lowest px-space-sm py-2 rounded-lg max-w-md">
+<span class="material-symbols-outlined text-outline text-[18px]">search</span>
+<input class="w-full bg-transparent text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none" placeholder="البحث بالاسم، البريد، الدور، أو رقم الهاتف..." type="text"/>
+</div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<div class="flex items-center bg-surface-container rounded-lg p-1">
+<button class="px-space-sm py-1 rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm font-semibold">الكل (8)</button>
+<button class="px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">المدراء (1)</button>
+<button class="px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">المبيعات (2)</button>
+<button class="px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">فنيو الصيانة (3)</button>
+<button class="px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">المخزن (2)</button>
+</div>
+<div class="flex items-center bg-surface-container rounded-lg px-space-sm py-1 gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-outline">tune</span>
+<select class="bg-transparent font-label-sm text-label-sm text-on-surface focus:outline-none cursor-pointer">
+<option class="bg-surface-container text-on-surface" value="all">جميع الفروع</option>
+<option class="bg-surface-container text-on-surface" value="algiers">فرع الجزائر العاصمة</option>
+<option class="bg-surface-container text-on-surface" value="oran">فرع وهران</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Staff Data Table -->
+<div class="overflow-x-auto rounded-lg">
+<table class="w-full text-right bg-surface-container-lowest">
+<thead>
+<tr class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-space-sm px-space-md font-semibold">الموظف</th>
+<th class="py-space-sm px-space-md font-semibold">الدور الوظيفي والفرع</th>
+<th class="py-space-sm px-space-md font-semibold">الصلاحيات المعتمدة</th>
+<th class="py-space-sm px-space-md font-semibold">تاريخ الانضمام وآخر نشاط</th>
+<th class="py-space-sm px-space-md font-semibold text-center">الحالة</th>
+<th class="py-space-sm px-space-md font-semibold text-left">إجراءات</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<!-- Employee 1 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of an Algerian male supervisor with neat beard wearing modern dark polo shirt against tech workshop ambient background, highly sharp, professional studio shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACPHsBCDFpjtcqy9vxON-nb-y7a4KNMylBdmZD13VKvxuPlxLOL4ts6kQ04BZIv7xya1rAW6uJ0Fr-kM5XzPDRolIc4xxjkrW7OCkzopBYQvo1_rqEILmT6TPqOYDMmH8fiskgQvyFFyP1e-Jv5S6G8lWT1GwM0S_EtC6F7LVZcBT0lOYmXug0Aft0qq6vCw_jno2-qS7W4RKK8_2ULCzOgZMek02APGTl04hjquSajvFKsgFt4SEk"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-primary rounded-full ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-body-lg font-bold text-on-surface">أحمد بن علي</span>
+<span class="font-label-sm text-label-sm text-outline tracking-tight">ahmed.benali@phonehub.dz | +213 550 12 34 56</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-0.5">
+<div class="inline-flex items-center gap-1 self-start px-space-xs py-0.5 rounded bg-tertiary/10 text-tertiary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">shield_person</span>
+<span>مشرف عام (Admin / Owner)</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-outline">location_on</span>
+                    الجزائر العاصمة - باب الزوار
+                  </span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-wrap gap-1 max-w-xs">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">التحكم الكلي</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">فتح الصندوق</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">التقارير المالية</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">تعديل الأسعار</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[13px]">desktop_windows</span>
+                    متصل الآن (Master POS-01)
+                  </span>
+<span class="font-label-sm text-label-sm text-outline">منضم منذ: 15 جانفي 2023</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<span class="px-space-sm py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">نشط</span>
+</td>
+<td class="py-space-sm px-space-md text-left">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="تعديل الصلاحيات">
+<span class="material-symbols-outlined text-[18px]">manage_accounts</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-secondary" title="إعادة تعيين PIN">
+<span class="material-symbols-outlined text-[18px]">pin</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="خيارات إضافية">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Employee 2 -->
+<tr class="hover:bg-surface-container transition-colors bg-surface-container/20">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of an experienced electronics technician with glasses and black lab apron repairing phones with delicate lighting and dark workshop background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQRUc6NGGZ4dX2etuB_AMjdHDn3J5Qt2xpvfY5glQCfsz52kjo9WKOtja74JQcB7n56m6PqC5r53RQNLk7MI6OSVY5QjJo0R22fCdkAnPu5j3R50v0g85N0rZPPuW1zJPbJmYbTZPZFnQ9j4qOVCXns1ozHKEZCMkDuVlij4afH7cc07aNcAVeiiPh0RzZHlcOmDpPEdzxenr3UEHEYxtjCO4dhLYl8VwoVMs1zmb4l6qJt9W-ea-T"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-primary rounded-full ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-body-lg font-bold text-on-surface">مراد بلقاسم</span>
+<span class="font-label-sm text-label-sm text-outline tracking-tight">mourad.tech@phonehub.dz | +213 661 88 90 12</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-0.5">
+<div class="inline-flex items-center gap-1 self-start px-space-xs py-0.5 rounded bg-secondary/10 text-secondary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">home_repair_service</span>
+<span>كبير فنيي الصيانة (Hardware Tech)</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-outline">location_on</span>
+                    الجزائر العاصمة - باب الزوار
+                  </span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-wrap gap-1 max-w-xs">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">استلام وتفكيك</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">طلب قطع الغيار</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">اختبار الضمان</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[13px]">handyman</span>
+                    نشط في طاولة الصيانة B-02
+                  </span>
+<span class="font-label-sm text-label-sm text-outline">منضم منذ: 01 مارس 2023</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<span class="px-space-sm py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">نشط</span>
+</td>
+<td class="py-space-sm px-space-md text-left">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="تعديل الصلاحيات">
+<span class="material-symbols-outlined text-[18px]">manage_accounts</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-secondary" title="إعادة تعيين PIN">
+<span class="material-symbols-outlined text-[18px]">pin</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="خيارات إضافية">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Employee 3 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of a young Algerian male retail cashier smiling wearing modern earphones and dark uniform in electronics store setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXz3crkIBob4dADdb9eDK3huJ4VAzclBtjycIyEDK-2i9fwn-GcoHuoPdlyG7DG1iZCZbsbZEZlvohN0YoCOQ2Zy90u_cdImVjzYUQvnGmQVwg0C5OYTrRoOVJ8pCgmdaamV672xOe3Gxv59mJ4QHJnivEttLUD8qtKTLWdJFPJCbT4HWKTRyqPjJmr6H5oirUgl274MVW8EJkUAyACBLyIQpe7WGYtVM7Paf6avSNw3hbvXNQSGIq"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-primary rounded-full ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-body-lg font-bold text-on-surface">سامي كريمي</span>
+<span class="font-label-sm text-label-sm text-outline tracking-tight">sami.pos@phonehub.dz | +213 770 45 67 89</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-0.5">
+<div class="inline-flex items-center gap-1 self-start px-space-xs py-0.5 rounded bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">point_of_sale</span>
+<span>مسؤول مبيعات ونقطة بيع (Cashier)</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-outline">location_on</span>
+                    الجزائر العاصمة - باب الزوار
+                  </span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-wrap gap-1 max-w-xs">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">نقطة البيع (POS)</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">إصدار وصولات</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">البيع بالتقسيط</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[13px]">desktop_windows</span>
+                    متصل على كاونتر البيع POS-02
+                  </span>
+<span class="font-label-sm text-label-sm text-outline">منضم منذ: 10 جويلية 2023</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<span class="px-space-sm py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">نشط</span>
+</td>
+<td class="py-space-sm px-space-md text-left">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="تعديل الصلاحيات">
+<span class="material-symbols-outlined text-[18px]">manage_accounts</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-secondary" title="إعادة تعيين PIN">
+<span class="material-symbols-outlined text-[18px]">pin</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="خيارات إضافية">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Employee 4 -->
+<tr class="hover:bg-surface-container transition-colors bg-surface-container/20">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of an intelligent North African male software engineer looking at dual monitors flashing terminal codes, high tech lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0VsH6KKlg41aOfinlHBEwYU2wKvbtRdZwWMVxNz3Fy7ejQJTY_Ap2ZZso4cmKRjakzDui_Y7YEnIkfT2_k_-sCXmb4ON6ALdA-QN5t-_oMr6rySgVgZu0id2Qkgf0EkpE-1FW31QpBfRC7Td2pghVMprWOphZ0m7jWu1ZgP56opVwp6X1cyEiWw3t_Oh_NVN4__CAPXQOEbT-63ZFSBXkaM4-o1G_kSd42Fe7fsS835evrmxEjbYl"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-outline rounded-full ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-body-lg font-bold text-on-surface">يوسف بلحاج</span>
+<span class="font-label-sm text-label-sm text-outline tracking-tight">youssef.soft@phonehub.dz | +213 561 22 33 44</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-0.5">
+<div class="inline-flex items-center gap-1 self-start px-space-xs py-0.5 rounded bg-secondary-container/20 text-secondary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">terminal</span>
+<span>فني سوفتوير وبرمجة (Software Tech)</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-outline">location_on</span>
+                    فرع وهران - حي العقيد
+                  </span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-wrap gap-1 max-w-xs">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">فك القيود iCloud/MDM</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">تفليش الرومات</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">سيرفر IMEI</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">schedule</span>
+                    آخر نشاط: منذ 45 دقيقة (عن بُعد)
+                  </span>
+<span class="font-label-sm text-label-sm text-outline">منضم منذ: 05 سبتمبر 2023</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<span class="px-space-sm py-0.5 rounded-full bg-outline/20 text-on-surface-variant font-label-sm text-label-sm font-semibold">غير متصل</span>
+</td>
+<td class="py-space-sm px-space-md text-left">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="تعديل الصلاحيات">
+<span class="material-symbols-outlined text-[18px]">manage_accounts</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-secondary" title="إعادة تعيين PIN">
+<span class="material-symbols-outlined text-[18px]">pin</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="خيارات إضافية">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Employee 5 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of an Algerian professional woman wearing elegant hijab with digital tablet in organized clean electronics stockroom warehouse" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1sQ21nyjCjJSs2JgC8UNac-CQiGGDUec1gkjXDhJozDd9pqXNe4R8L5jCfxBs1udkIukP8XAD9Cpz2k8KmK4ww4LSizkSkU4rIEQZDGxePoh_HyMmr2pjloDa0LM7PGhMe0bQoRxDsAYvZkNQ7EILOWHc3qmN84iN1dq1QPWiYug8ysQC5KmjIQAkN0-ZCf9ATa--727SnesIgD4coFl9m1m6oXF_SicQJOnqHcyU9WktSYPZ7f3D"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-primary rounded-full ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-body-lg font-bold text-on-surface">فاطمة الزهراء</span>
+<span class="font-label-sm text-label-sm text-outline tracking-tight">fatima.stock@phonehub.dz | +213 555 77 11 99</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-0.5">
+<div class="inline-flex items-center gap-1 self-start px-space-xs py-0.5 rounded bg-tertiary-container/20 text-tertiary-fixed font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">inventory_2</span>
+<span>إدارة المخزون والمشتريات (Inventory)</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-outline">location_on</span>
+                    الجزائر العاصمة - باب الزوار
+                  </span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-wrap gap-1 max-w-xs">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">جرد القطع والهواتف</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">سندات التوريد</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">تعديل أسعار الشراء</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[13px]">barcode_scanner</span>
+                    متصلة من جهاز الجرد اليدوي
+                  </span>
+<span class="font-label-sm text-label-sm text-outline">منضم منذ: 12 فيفري 2024</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<span class="px-space-sm py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">نشط</span>
+</td>
+<td class="py-space-sm px-space-md text-left">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="تعديل الصلاحيات">
+<span class="material-symbols-outlined text-[18px]">manage_accounts</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-secondary" title="إعادة تعيين PIN">
+<span class="material-symbols-outlined text-[18px]">pin</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="خيارات إضافية">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Section: Live Audit & Security Log -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-md flex flex-col gap-space-md">
+<!-- Section Header with Live Stream Indicator -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+<span>بث حي ومباشر (Live Audit Feed)</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">سجل العمليات والرقابة الأمنية</span>
+</div>
+<!-- Filter Chips -->
+<div class="flex items-center gap-1 bg-surface-container-lowest p-1 rounded-lg flex-wrap">
+<button class="px-space-sm py-1 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">الكل</button>
+<button class="px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">مبيعات ونقد</button>
+<button class="px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">تعديل المخزون</button>
+<button class="px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">حذف وإلغاء</button>
+<button class="px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">تسجيلات الدخول</button>
+</div>
+</div>
+<!-- Logs Stream Table -->
+<div class="flex flex-col gap-space-xs">
+<!-- Log Item 1: High Alert / Deletion Void -->
+<div class="flex flex-col xl:flex-row xl:items-center justify-between p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors gap-space-sm shadow-sm">
+<div class="flex items-start gap-space-sm">
+<span class="w-9 h-9 rounded-lg bg-error-container/20 text-error flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">إلغاء سند بيع معتمد</span>
+<span class="font-label-sm text-label-sm text-tertiary-fixed font-bold tracking-tight">18,500 د.ج</span>
+<span class="font-label-sm text-label-sm text-outline">#INV-89421</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-0.5">
+                محاولة إلغاء وصل بيع شاشة أصلية Samsung A54 بعد الطباعة - تم تعليق الإلغاء بانتظار موافقة المشرف.
+              </p>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-label-sm text-label-sm mt-1">
+<span class="text-on-surface font-semibold">الفاعل: سامي كريمي (كاشير)</span>
+<span>•</span>
+<span class="text-error font-medium">مطلوب توقيع المشرف: أحمد بن علي</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between xl:flex-col xl:items-end gap-1 shrink-0 pt-space-xs xl:pt-0">
+<span class="font-label-sm text-label-sm text-primary font-bold">14:28:12 (منذ 4 دقائق)</span>
+<span class="font-label-sm text-label-sm text-outline font-mono">192.168.1.18 • POS-Terminal-02</span>
+</div>
+</div>
+<!-- Log Item 2: Cash Drawer Open -->
+<div class="flex flex-col xl:flex-row xl:items-center justify-between p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors gap-space-sm shadow-sm">
+<div class="flex items-start gap-space-sm">
+<span class="w-9 h-9 rounded-lg bg-tertiary/10 text-tertiary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">lock_open</span>
+</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-1.5 py-0.5 rounded bg-tertiary/20 text-tertiary font-label-sm text-label-sm font-bold">فتح الصندوق بدون عملية بيع</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">No-Sale Drawer Kick</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-0.5">
+                فتح درج النقد يدوياً بواسطة رمز المشرف الرئيسي. السبب المسجل: "سداد فاتورة مصاريف صيانة يومية وتزويد المحل بمستلزمات نظافة".
+              </p>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-label-sm text-label-sm mt-1">
+<span class="text-on-surface font-semibold">الفاعل: أحمد بن علي (مشرف عام)</span>
+<span>•</span>
+<span class="text-outline">المبلغ المصروف: 2,400 د.ج</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between xl:flex-col xl:items-end gap-1 shrink-0 pt-space-xs xl:pt-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">13:50:04 (منذ 42 دقيقة)</span>
+<span class="font-label-sm text-label-sm text-outline font-mono">192.168.1.10 • Main-Register-01</span>
+</div>
+</div>
+<!-- Log Item 3: Price Update -->
+<div class="flex flex-col xl:flex-row xl:items-center justify-between p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors gap-space-sm shadow-sm">
+<div class="flex items-start gap-space-sm">
+<span class="w-9 h-9 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">price_change</span>
+</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-1.5 py-0.5 rounded bg-secondary/20 text-secondary font-label-sm text-label-sm font-bold">تعديل سعر بيع التجزئة</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">iPhone 15 Pro Max 256GB</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-0.5">
+                تعديل سعر البيع للجمهور من <span class="line-through text-outline font-mono">220,000 د.ج</span> إلى <span class="text-primary font-bold font-mono">218,000 د.ج</span> تماشياً مع تسعيرة السوق الجديدة لدفعة دبي.
+              </p>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-label-sm text-label-sm mt-1">
+<span class="text-on-surface font-semibold">الفاعل: فاطمة الزهراء (إدارة المخزون)</span>
+<span>•</span>
+<span class="text-outline">الدفعة: LOT-2024-DZ09</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between xl:flex-col xl:items-end gap-1 shrink-0 pt-space-xs xl:pt-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">11:15:33 (منذ ساعتين ونصف)</span>
+<span class="font-label-sm text-label-sm text-outline font-mono">192.168.1.25 • Stock-Workstation</span>
+</div>
+</div>
+<!-- Log Item 4: Workshop Repair Intake -->
+<div class="flex flex-col xl:flex-row xl:items-center justify-between p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors gap-space-sm shadow-sm">
+<div class="flex items-start gap-space-sm">
+<span class="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">construction</span>
+</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-1.5 py-0.5 rounded bg-primary/20 text-primary font-label-sm text-label-sm font-bold">استلام صيانة جديدة</span>
+<span class="font-label-sm text-label-sm text-secondary font-mono font-bold">REP-2049</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-0.5">
+                استلام جهاز Galaxy S24 Ultra لتغيير مدخل الشحن وفحص دارة الـ IC مع فحص IMEI تلقائي وحفظ حالة الهيكل الخارجي.
+              </p>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-label-sm text-label-sm mt-1">
+<span class="text-on-surface font-semibold">الفاعل: مراد بلقاسم (فني رئيسي)</span>
+<span>•</span>
+<span class="text-outline">الزبون: كمال تواتي</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between xl:flex-col xl:items-end gap-1 shrink-0 pt-space-xs xl:pt-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">10:04:19 (منذ 4 ساعات)</span>
+<span class="font-label-sm text-label-sm text-outline font-mono">192.168.1.30 • Bench-Workshop-01</span>
+</div>
+</div>
+<!-- Log Item 5: Financial Export -->
+<div class="flex flex-col xl:flex-row xl:items-center justify-between p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors gap-space-sm shadow-sm">
+<div class="flex items-start gap-space-sm">
+<span class="w-9 h-9 rounded-lg bg-surface-container-high text-on-surface-variant flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">download_done</span>
+</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">تصدير بيانات حساسة</span>
+<span class="font-label-sm text-label-sm text-outline">XLSX Export</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-0.5">
+                تصدير التقرير المالي والأرباح الصافية لشهر أكتوبر (المبيعات، الصيانة، فواتير الموردين) مشفراً بصيغة Excel.
+              </p>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-label-sm text-label-sm mt-1">
+<span class="text-on-surface font-semibold">الفاعل: أحمد بن علي (الإدارة العامة)</span>
+<span>•</span>
+<span class="text-outline">حجم الملف: 4.2 MB</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between xl:flex-col xl:items-end gap-1 shrink-0 pt-space-xs xl:pt-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant">09:12:00 (صباح اليوم)</span>
+<span class="font-label-sm text-label-sm text-outline font-mono">192.168.1.10 • Admin-Office</span>
+</div>
+</div>
+</div>
+<!-- Pagination / More Logs Button -->
+<div class="flex items-center justify-between pt-space-sm">
+<span class="font-label-sm text-label-sm text-outline">عرض آخر 5 سجلات من أصل 482 عملية مسجلة اليوم</span>
+<button class="px-space-md py-space-xs rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span>تحميل باقي السجل التاريخي</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+</div></main></div></body></html>
