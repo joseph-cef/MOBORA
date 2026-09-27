@@ -1,9 +1,10 @@
-// System Settings & Backup Renderer
+// System Settings & Backup Renderer - Enterprise Backup, Restore, Thermal Hardware & Full Integration
 document.addEventListener('DOMContentLoaded', () => {
     initSettingsAndBackup();
 });
 
 let loadedSettings = {};
+let availablePrinters = [];
 
 async function initSettingsAndBackup() {
     setupTabSwitching();
@@ -12,6 +13,7 @@ async function initSettingsAndBackup() {
     setupPrinterTests();
 
     await loadAllSettings();
+    await loadPrintersList();
     await loadBackupHistory();
 }
 
@@ -26,7 +28,7 @@ function showToast(message) {
         setTimeout(() => {
             toast.classList.remove('translate-y-0', 'opacity-100');
             toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
-        }, 3000);
+        }, 3200);
     } else {
         alert(message || 'تم حفظ الإعدادات بنجاح!');
     }
@@ -43,7 +45,7 @@ function setupTabSwitching() {
             tabButtons.forEach(b => {
                 b.className = 'tab-btn w-full flex items-center justify-between p-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all';
             });
-            btn.className = 'tab-btn w-full flex items-center justify-between p-space-sm rounded-lg bg-primary-container text-on-primary-container font-semibold transition-all';
+            btn.className = 'tab-btn w-full flex items-center justify-between p-space-sm rounded-lg bg-primary-container text-on-primary-container font-semibold transition-all shadow-sm';
 
             tabContents.forEach(content => {
                 content.classList.add('hidden');
@@ -57,6 +59,41 @@ function setupTabSwitching() {
             }
         });
     });
+}
+
+async function loadPrintersList() {
+    try {
+        if (!window.moboraAPI || !window.moboraAPI.printer || !window.moboraAPI.printer.getList) return;
+        availablePrinters = await window.moboraAPI.printer.getList();
+
+        // Inject or populate printer selection dropdown in Printers tab
+        const printersTab = document.getElementById('tab-printers');
+        if (printersTab && availablePrinters.length > 0) {
+            let select = document.getElementById('os-printer-select');
+            if (!select) {
+                const container = printersTab.querySelector('.flex.flex-col.gap-space-sm') || printersTab;
+                const div = document.createElement('div');
+                div.className = 'bg-surface-container-low p-space-md rounded-xl flex flex-col gap-2 mt-4';
+                div.innerHTML = `
+                    <label class="font-label-md text-on-surface font-semibold flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-primary text-[20px]">print</span>
+                        طابعة الإيصالات الحرارية المتصلة بالنظام (Hardware Printer)
+                    </label>
+                    <select id="os-printer-select" class="w-full bg-surface-container text-on-surface p-2.5 rounded-xl border border-outline-variant font-mono">
+                        <option value="">-- الطابعة الافتراضية للنظام (Default OS Printer) --</option>
+                        ${availablePrinters.map(p => `<option value="${p.name}">${p.name} ${p.isDefault ? '(الافتراضية)' : ''}</option>`).join('')}
+                    </select>
+                `;
+                container.prepend(div);
+                select = document.getElementById('os-printer-select');
+            }
+            if (loadedSettings.thermal_printer_name && select) {
+                select.value = loadedSettings.thermal_printer_name;
+            }
+        }
+    } catch (e) {
+        console.warn('[Printers List Error]', e);
+    }
 }
 
 async function loadAllSettings() {
@@ -164,6 +201,7 @@ async function saveAllSettings() {
         const telegramChatInput = document.querySelector('#tab-telegram input[type="text"]');
         const pinInput = document.querySelector('#tab-security input[type="password"]');
         const autoLockSelect = document.querySelector('#tab-security select');
+        const printerSelect = document.getElementById('os-printer-select');
 
         let autoLockMinutes = '15';
         if (autoLockSelect) {
@@ -182,6 +220,7 @@ async function saveAllSettings() {
             receipt_footer: footerTextarea ? footerTextarea.value.trim() : '',
             currency: currencySelect ? currencySelect.value : 'DZD',
             printer_type: printerRadio ? printerRadio.value : '80mm',
+            thermal_printer_name: printerSelect ? printerSelect.value : '',
             telegram_bot_token: telegramTokenInput ? telegramTokenInput.value.trim() : '',
             telegram_admin_chat_id: telegramChatInput ? telegramChatInput.value.trim() : '',
             cashier_supervisor_pin: pinInput ? pinInput.value.trim() : '8492',
@@ -247,7 +286,49 @@ function setupBackupActions() {
             link.click();
         });
     }
+
+    // External DB Restore Button
+    const restoreArea = document.querySelector('#tab-backup .flex.flex-wrap.items-center.gap-space-sm');
+    if (restoreArea && !document.getElementById('externalRestoreBtn')) {
+        const importBtn = document.createElement('button');
+        importBtn.id = 'externalRestoreBtn';
+        importBtn.className = 'flex items-center gap-space-xs bg-surface-container hover:bg-surface-bright text-on-surface px-space-md py-2 rounded-lg font-label-md text-label-md transition-colors';
+        importBtn.innerHTML = `
+            <span class="material-symbols-outlined text-[18px] text-tertiary">file_open</span>
+            <span>استيراد نسخة احتياطية من ملف</span>
+        `;
+        importBtn.onclick = () => window.openExternalBackupFilePicker();
+        restoreArea.appendChild(importBtn);
+    }
 }
+
+window.openExternalBackupFilePicker = function () {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.sqlite,.db,.bak';
+    input.onchange = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const confirmRestore = confirm(`هل أنت متأكد من استعادة قاعدة البيانات من الملف:\n${file.name}\n\n⚠️ تحذير: سيتم استبدال البيانات الحالية بالكامل، وسيتم حفظ نسخة احتياطية تلقائية أولاً قبل الاستبدال.`);
+        if (!confirmRestore) return;
+
+        try {
+            if (window.moboraAPI && window.moboraAPI.settings && window.moboraAPI.settings.restoreBackup) {
+                // In electron, file.path contains full local path
+                const filePath = file.path || file.name;
+                const res = await window.moboraAPI.settings.restoreBackup({ filePath });
+                if (res.success) {
+                    alert('✅ تمت استعادة قاعدة البيانات بنجاح!\nسيتم إعادة تحميل واجهة النظام الآن.');
+                    window.location.reload();
+                }
+            }
+        } catch (err) {
+            alert('فشل استعادة النسخة الاحتياطية: ' + err.message);
+        }
+    };
+    input.click();
+};
 
 async function loadBackupHistory() {
     try {
@@ -280,18 +361,26 @@ async function loadBackupHistory() {
                         <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
                         <div class="flex flex-col">
                             <span class="font-label-md text-label-md font-semibold text-on-surface">${b.file_name}</span>
-                            <span class="font-label-sm text-label-sm text-on-surface-variant">${dateStr}</span>
+                            <span class="font-label-sm text-label-sm text-on-surface-variant font-mono">${dateStr}</span>
                         </div>
                     </td>
-                    <td class="p-space-sm font-label-md text-label-md">${sizeMb} MB</td>
+                    <td class="p-space-sm font-label-md text-label-md font-mono">${sizeMb} MB</td>
                     <td class="p-space-sm">
                         <span class="px-space-xs py-0.5 rounded bg-secondary-container/20 text-secondary font-label-sm text-label-sm">${typeLabel}</span>
                     </td>
                     <td class="p-space-sm">
                         <span class="px-space-xs py-0.5 rounded bg-primary-container/20 text-primary font-label-sm text-label-sm">سليم وموثق (SHA-256)</span>
                     </td>
-                    <td class="p-space-sm text-left space-x-space-xs">
-                        <button class="px-space-sm py-1 bg-surface-container hover:bg-surface-bright rounded text-primary font-label-sm text-label-sm" onclick="alert('مسار الملف:\\n${(b.file_path || '').replace(/\\/g, '\\\\')}')">مسار الملف</button>
+                    <td class="p-space-sm text-left">
+                        <div class="flex items-center gap-1.5 justify-end">
+                            <button class="px-2.5 py-1 bg-primary hover:bg-primary-fixed-dim text-on-primary rounded-lg font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-sm transition-all" onclick="window.restoreSpecificBackup(${b.id}, '${b.file_name}')" title="استعادة قاعدة البيانات من هذه النقطة">
+                                <span class="material-symbols-outlined text-[15px]">restore</span>
+                                <span>استعادة</span>
+                            </button>
+                            <button class="px-2 py-1 bg-surface-container hover:bg-surface-bright rounded-lg text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors" onclick="alert('مسار الملف:\\n${(b.file_path || '').replace(/\\/g, '\\\\')}')" title="عرض المسار">
+                                <span class="material-symbols-outlined text-[15px]">folder_open</span>
+                            </button>
+                        </div>
                     </td>
                 </tr>
             `;
@@ -301,18 +390,48 @@ async function loadBackupHistory() {
     }
 }
 
+window.restoreSpecificBackup = async function (backupId, fileName) {
+    const confirmed = confirm(`⚠️ تأكيد استعادة النسخة الاحتياطية:\n\nالملف: ${fileName}\n\nهل أنت متأكد من استعادة هذه النسخة؟\nسيقوم النظام بإنشاء نسخة أمان تلقائية قبل الاسترجاع ثم إعادة تحميل البيانات.`);
+    if (!confirmed) return;
+
+    try {
+        if (window.moboraAPI && window.moboraAPI.settings && window.moboraAPI.settings.restoreBackup) {
+            const res = await window.moboraAPI.settings.restoreBackup({ backupId });
+            if (res.success) {
+                alert('✅ تمت استعادة قاعدة البيانات بنجاح!\nسيتم إعادة تحميل النظام الآن.');
+                window.location.reload();
+            }
+        }
+    } catch (e) {
+        alert('فشل استعادة النسخة الاحتياطية: ' + e.message);
+    }
+};
+
 function setupPrinterTests() {
     const thermalTestBtn = Array.from(document.querySelectorAll('button')).find(b => b.textContent.includes('طباعة اختبارية'));
     if (thermalTestBtn) {
-        thermalTestBtn.addEventListener('click', () => {
-            window.print();
+        thermalTestBtn.addEventListener('click', async () => {
+            try {
+                if (window.moboraAPI && window.moboraAPI.printer && window.moboraAPI.printer.testPrint) {
+                    const printerSelect = document.getElementById('os-printer-select');
+                    const selectedPrinter = printerSelect ? printerSelect.value : null;
+
+                    const res = await window.moboraAPI.printer.testPrint({ width: 80, printerName: selectedPrinter });
+                    showToast('تم إرسال تذكرة الفحص الحراري للطابعة بنجاح 🧾');
+                } else {
+                    window.print();
+                }
+            } catch (err) {
+                console.warn('[Printer Test fallback]', err);
+                window.print();
+            }
         });
     }
 
     const labelTestBtn = Array.from(document.querySelectorAll('button')).find(b => b.textContent.includes('اختبار ملصق الباركود'));
     if (labelTestBtn) {
         labelTestBtn.addEventListener('click', () => {
-            alert('تم إرسال أمر معايرة وطباعة ملصق تجريبي إلى طابعة الباركود.');
+            showToast('تمت معايرة ملصق الباركود وإرسال أمر الطباعة التجريبي');
         });
     }
 }

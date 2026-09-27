@@ -99,6 +99,40 @@ function registerSettingsIpc(ipcMain) {
         const db = getDb();
         return db.prepare('SELECT * FROM backup_logs ORDER BY created_at DESC LIMIT 20').all();
     });
+
+    // 5. Restore Database from Backup File
+    ipcMain.handle('backup:restore', async (event, { filePath, employeeId = 1 } = {}) => {
+        if (!filePath || !fs.existsSync(filePath)) {
+            throw new Error('ملف النسخة الاحتياطية غير موجود');
+        }
+
+        const liveDbPath = getDbPath();
+        const backupDir = path.resolve(path.dirname(liveDbPath), 'backups');
+        if (!fs.existsSync(backupDir)) fs.mkdirSync(backupDir, { recursive: true });
+
+        // Safety backup of current DB before overwriting
+        const safetyBackupPath = path.join(backupDir, `safety_pre_restore_${Date.now()}.db`);
+        try {
+            fs.copyFileSync(liveDbPath, safetyBackupPath);
+        } catch (e) {
+            console.warn('[Backup Restore] Could not create pre-restore safety copy:', e.message);
+        }
+
+        // Close DB, copy backup file over live db, reopen DB
+        closeDb();
+        fs.copyFileSync(filePath, liveDbPath);
+        initDatabase();
+
+        logAudit({
+            employeeId,
+            actionType: 'backup_restored',
+            targetEntity: 'database',
+            targetId: path.basename(filePath),
+            notes: `تمت استعادة قاعدة البيانات بنجاح من النسخة الاحتياطية: ${path.basename(filePath)}`
+        });
+
+        return { success: true, restoredFile: path.basename(filePath) };
+    });
 }
 
 module.exports = { registerSettingsIpc };

@@ -1,4 +1,4 @@
-// Warranty & IMEI Checker Renderer
+// Warranty & IMEI Checker Renderer - Production Quality & Certificate Printing
 document.addEventListener('DOMContentLoaded', () => {
     initWarrantyChecker();
 });
@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 let currentDeviceData = null;
 
 async function initWarrantyChecker() {
+    injectVoidModal();
     loadRibbonStats();
     loadRecentChecks();
 
@@ -30,7 +31,11 @@ async function initWarrantyChecker() {
 
     if (scanCameraBtn) {
         scanCameraBtn.addEventListener('click', () => {
-            alert('كاميرا المسح الضوئي: يرجى توجيه ماسح الباركود نحو كود الجهاز أو إدخال السيريال يدويًا.');
+            if (imeiInput) {
+                imeiInput.focus();
+                imeiInput.select();
+                showNotification('قارئ الباركود جاهز 📷', 'وجّه ماسح الباركود نحو الكود الملصق على علبة الهاتف أو ظهره');
+            }
         });
     }
 
@@ -60,9 +65,9 @@ async function loadRibbonStats() {
         if (ribbonContainer) {
             const statValues = ribbonContainer.querySelectorAll('.font-label-lg');
             if (statValues.length >= 3) {
-                statValues[0].textContent = `${Number(stats.activeCount).toLocaleString()} جهاز`;
-                statValues[1].textContent = `${Number(stats.expiringCount).toLocaleString()} جهاز`;
-                statValues[2].textContent = `${Number(stats.todayChecks).toLocaleString()} عملية`;
+                statValues[0].textContent = `${Number(stats.activeCount || 0).toLocaleString('fr-DZ')} جهاز`;
+                statValues[1].textContent = `${Number(stats.expiringCount || 0).toLocaleString('fr-DZ')} جهاز`;
+                statValues[2].textContent = `${Number(stats.todayChecks || 0).toLocaleString('fr-DZ')} عملية`;
             }
         }
     } catch (err) {
@@ -72,7 +77,7 @@ async function loadRibbonStats() {
 
 async function performSearch(query) {
     if (!query) {
-        alert('يرجى كتابة رقم IMEI أو السيريال');
+        showNotification('تنبيه', 'يرجى كتابة رقم IMEI أو السيريال');
         return;
     }
 
@@ -112,7 +117,7 @@ function renderSearchResult(data) {
         if (isVoided) {
             label.textContent = 'ملغي / متلاعب به (Garantie Annulée)';
             label.className = 'font-headline-lg text-headline-lg text-error font-bold';
-            subtext.textContent = 'تم إلغاء الضمان رسميًا من قبل المشرف بسبب كسر اللاصق الأمني أو سوء الاستخدام.';
+            subtext.textContent = 'تم إلغاء الضمان رسمياً من قبل الإدارة بسبب كسر اللاصق الأمني أو التفكيك خارج الورشة.';
             iconBox.className = 'w-16 h-16 rounded-xl bg-error/20 text-error flex items-center justify-center shrink-0 shadow-lg';
             iconBox.innerHTML = '<span class="material-symbols-outlined text-[36px]">block</span>';
         } else if (isExpired) {
@@ -152,7 +157,7 @@ function renderSearchResult(data) {
             circle.setAttribute('stroke-dashoffset', offset.toString());
         }
         if (percentText) {
-            percentText.className = `absolute font-label-sm text-label-sm ${textColorClass} font-bold`;
+            percentText.className = `absolute font-label-sm text-label-sm ${textColorClass} font-bold font-mono`;
             percentText.textContent = `${metrics.percentElapsed}%`;
         }
         if (daysText) {
@@ -195,7 +200,7 @@ function renderSearchResult(data) {
         const invNum = warranty?.invoice_number ? `#${warranty.invoice_number}` : 'INV-8892#';
         const saleDate = warranty?.sale_date ? new Date(warranty.sale_date).toLocaleDateString('ar-DZ') : (warranty?.start_date || '15 ماي 2024');
         const cashier = warranty?.cashier_name || 'أحمد بن علي (المشرف)';
-        const amount = warranty?.sale_amount ? `${Number(warranty.sale_amount).toLocaleString()} دج` : (device?.sell_price ? `${Number(device.sell_price).toLocaleString()} دج` : '245,000 دج');
+        const amount = warranty?.sale_amount ? `${Number(warranty.sale_amount).toLocaleString('fr-DZ')} دج` : (device?.sell_price ? `${Number(device.sell_price).toLocaleString('fr-DZ')} دج` : '245,000 دج');
         const paymentMethod = warranty?.sale_payment_method === 'baridimob' ? 'بريدي موب (BaridiMob)' : (warranty?.sale_payment_method === 'cash' ? 'نقدي (Cash)' : 'بريدي موب + نقدي');
 
         const rows = purchaseCard.querySelectorAll('.flex.items-center.justify-between');
@@ -226,7 +231,7 @@ function renderSearchResult(data) {
         }
     }
 
-    // 6. Workshop Service Records (Repairs attached to this IMEI)
+    // 6. Workshop Service Records
     renderRepairHistory(repairs);
 }
 
@@ -244,12 +249,10 @@ function renderNotFound(query) {
         iconBox.innerHTML = '<span class="material-symbols-outlined text-[36px]">search_off</span>';
     }
 
-    // Clear repairs list
     renderRepairHistory([]);
 }
 
 function renderRepairHistory(repairs) {
-    // Find the workshop history card (4th card in the main column)
     const cards = document.querySelectorAll('.xl\\:col-span-8 > .bg-surface-container');
     const workshopCard = cards[3];
     if (!workshopCard) return;
@@ -277,7 +280,7 @@ function renderRepairHistory(repairs) {
         const statusLabel = r.status === 'delivered' ? 'مكتمل ومسلم' : (r.status === 'ready' ? 'جاهز للاستلام' : 'قيد الصيانة');
         const icon = r.issue_category === 'screen' ? 'screen_rotation' : (r.issue_category === 'battery' ? 'battery_charging_full' : 'handyman');
         const dateStr = r.created_at ? new Date(r.created_at).toLocaleDateString('ar-DZ') : 'مؤخراً';
-        const priceStr = r.total_price ? `${Number(r.total_price).toLocaleString()} دج` : '0.00 دج';
+        const priceStr = r.total_price ? `${Number(r.total_price).toLocaleString('fr-DZ')} دج` : '0.00 دج';
 
         return `
             <div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm">
@@ -288,14 +291,14 @@ function renderRepairHistory(repairs) {
                     <div class="flex flex-col">
                         <div class="flex items-center gap-space-xs">
                             <span class="font-label-md text-label-md text-on-surface font-semibold">${r.issue_description || 'صيانة فنية'}</span>
-                            <span class="px-space-xs py-0.5 rounded bg-${statusColor}/20 text-${statusColor} text-[10px]">${statusLabel}</span>
+                            <span class="px-space-xs py-0.5 rounded bg-${statusColor}/20 text-${statusColor} text-[10px] font-bold">${statusLabel}</span>
                         </div>
                         <span class="font-body-sm text-body-sm text-on-surface-variant">الزبون: ${r.customer_name} • الفني: ${r.technician_name || 'مراد بلقاسم'}</span>
                     </div>
                 </div>
                 <div class="flex flex-col items-end shrink-0">
                     <span class="font-label-sm text-label-sm text-on-surface font-mono">${dateStr}</span>
-                    <span class="font-label-sm text-label-sm text-${statusColor} font-bold">${priceStr} (${r.ticket_number})</span>
+                    <span class="font-label-sm text-label-sm text-${statusColor} font-bold font-mono">${priceStr} (${r.ticket_number})</span>
                 </div>
             </div>
         `;
@@ -323,7 +326,7 @@ function addToRecentChecks(result) {
                 </div>
             </div>
             <div class="flex flex-col items-end shrink-0">
-                <span class="px-space-xs py-0.5 rounded bg-${statusColor}/10 text-${statusColor} font-label-sm text-label-sm font-bold">${statusText}</span>
+                <span class="px-space-xs py-0.5 rounded bg-${statusColor}/10 text-${statusColor} font-label-sm text-label-sm font-bold font-mono">${statusText}</span>
                 <span class="font-label-sm text-label-sm text-outline">الآن</span>
             </div>
         </div>
@@ -333,17 +336,80 @@ function addToRecentChecks(result) {
 }
 
 async function loadRecentChecks() {
-    // Recent checks are pre-rendered in HTML and dynamically extended
+    // Recent checks populated on user lookup
 }
 
+function injectVoidModal() {
+    if (document.getElementById('modal-void-warranty')) return;
+
+    const modalHtml = `
+    <div id="modal-void-warranty" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="bg-surface-container-high border border-outline-variant/50 rounded-2xl w-full max-w-md shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+            <div class="p-space-md bg-surface-container-highest border-b border-outline-variant/40 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-error text-[24px]">block</span>
+                    <h3 class="font-headline-md text-on-surface">إلغاء الضمان أو الإبلاغ عن تلاعب</h3>
+                </div>
+                <button onclick="document.getElementById('modal-void-warranty').classList.add('hidden')" class="w-8 h-8 rounded-lg hover:bg-surface-container text-on-surface-variant flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[20px]">close</span>
+                </button>
+            </div>
+            <div class="p-space-md flex flex-col gap-3">
+                <div class="p-3 bg-error-container/20 rounded-xl text-error text-label-sm flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[20px]">warning</span>
+                    <span>تحذير: هذا الإجراء رسمي ويسجل في سجل الرقابة ويمنع استقبال الجهاز تحت الضمان.</span>
+                </div>
+                <div>
+                    <label class="font-label-sm text-on-surface-variant block mb-1">سبب إلغاء الضمان *</label>
+                    <select id="void-reason-select" class="w-full bg-surface-container-lowest text-on-surface p-2.5 rounded-xl border border-outline-variant font-body-sm focus:outline-none focus:ring-1 focus:ring-primary mb-2">
+                        <option value="كسر أو نزع اللاصق الأمني">كسر أو نزع اللاصق الأمني (Security Seal Broken)</option>
+                        <option value="تسلل سوائل أو أثر رطوبة وأكسدة">تسلل سوائل أو أثر رطوبة وأكسدة (Water Damage)</option>
+                        <option value="كسر في الشاشة أو الشاسيه ناتج عن سقوط">كسر في الشاشة أو الشاسيه ناتج عن سقوط</option>
+                        <option value="تفكيك أو محاولة صيانة خارج المحل">تفكيك أو محاولة صيانة خارج المحل</option>
+                        <option value="تعديل غير مصرح لنظام التشغيل (Root / Jailbreak)">تعديل غير مصرح لنظام التشغيل</option>
+                        <option value="سبب آخر">سبب آخر يحدد يدوياً</option>
+                    </select>
+                    <textarea id="void-reason-notes" rows="2" placeholder="تفاصيل الفحص المجهري أو الملاحظات الفنية..." class="w-full bg-surface-container-lowest text-on-surface p-2.5 rounded-xl border border-outline-variant font-body-sm focus:outline-none focus:ring-1 focus:ring-primary"></textarea>
+                </div>
+            </div>
+            <div class="p-space-md bg-surface-container-highest border-t border-outline-variant/40 flex items-center justify-end gap-2">
+                <button onclick="document.getElementById('modal-void-warranty').classList.add('hidden')" class="px-4 py-2 rounded-xl text-on-surface-variant hover:text-on-surface font-label-md">إلغاء</button>
+                <button onclick="window.confirmVoidWarranty()" class="px-6 py-2 rounded-xl bg-error hover:bg-error-container text-on-error font-bold font-label-md shadow-md flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-[18px]">gavel</span>
+                    <span>تأكيد الإلغاء والتوثيق</span>
+                </button>
+            </div>
+        </div>
+    </div>`;
+    document.body.insertAdjacentHTML('beforeend', modalHtml);
+}
+
+window.confirmVoidWarranty = async function () {
+    if (!currentDeviceData) return;
+
+    const select = document.getElementById('void-reason-select');
+    const notes = document.getElementById('void-reason-notes')?.value.trim();
+    const reason = `${select?.value || ''}${notes ? ` - ${notes}` : ''}`;
+
+    const imei = currentDeviceData.device?.imei1 || currentDeviceData.warranty?.imei;
+    try {
+        if (window.moboraAPI && window.moboraAPI.warranty && window.moboraAPI.warranty.void) {
+            await window.moboraAPI.warranty.void({ imei, reason });
+            document.getElementById('modal-void-warranty').classList.add('hidden');
+            showNotification('تم الإلغاء', 'تم إلغاء الضمان بنجاح وتوثيق الحادثة في سجل الرقابة.');
+            performSearch(imei);
+        }
+    } catch (e) {
+        alert('خطأ: ' + e.message);
+    }
+};
+
 function setupActionButtons() {
-    const printBtn = document.querySelector('button:has(span:contains("print")), button:has(.material-symbols-outlined:contains("print"))') ||
-        Array.from(document.querySelectorAll('button')).find(b => b.textContent.includes('طباعة شهادة الضمان'));
-    
+    const printBtn = Array.from(document.querySelectorAll('button')).find(b => b.textContent.includes('طباعة شهادة الضمان'));
     if (printBtn) {
         printBtn.addEventListener('click', () => {
             if (!currentDeviceData) {
-                alert('يرجى فحص جهاز أولاً لطباعة الشهادة');
+                showNotification('تنبيه', 'يرجى فحص جهاز أولاً لطباعة الشهادة');
                 return;
             }
             window.print();
@@ -365,34 +431,42 @@ function setupActionButtons() {
     if (shareBtn) {
         shareBtn.addEventListener('click', () => {
             if (!currentDeviceData) {
-                alert('يرجى فحص جهاز أولاً لإرسال التقرير');
+                showNotification('تنبيه', 'يرجى فحص جهاز أولاً لإرسال التقرير');
                 return;
             }
             const phone = currentDeviceData.warranty?.customer_phone || currentDeviceData.warranty?.sale_phone;
+            const devName = currentDeviceData.device?.product_name || currentDeviceData.warranty?.product_name || 'هاتف';
+            const imei = currentDeviceData.device?.imei1 || currentDeviceData.warranty?.imei || '';
+            const status = currentDeviceData.metrics?.isExpired ? 'منتهي الصلاحية' : 'ساري المفعول';
+
+            const message = encodeURIComponent(`السلام عليكم،\nشهادة ضمان جهازكم [${devName}]\nمسجل بـ IMEI: ${imei}\nحالة الضمان: ${status}\nمحل فون إكسبريس للاتصالات.`);
+
             if (phone) {
-                alert(`تم تجهيز رابط التقرير للعميل رقم: ${phone}`);
+                const cleanPhone = phone.replace(/[^0-9]/g, '');
+                window.open(`https://wa.me/${cleanPhone}?text=${message}`, '_blank');
             } else {
-                alert('تم نسخ رابط تقرير الفحص إلى الحافظة.');
+                navigator.clipboard.writeText(decodeURIComponent(message));
+                showNotification('تم النسخ', 'تم نسخ ملخص الضمان إلى الحافظة.');
             }
         });
     }
 
     const voidBtn = Array.from(document.querySelectorAll('button')).find(b => b.textContent.includes('إلغاء الكفالة'));
     if (voidBtn) {
-        voidBtn.addEventListener('click', async () => {
+        voidBtn.addEventListener('click', () => {
             if (!currentDeviceData) {
-                alert('يرجى اختيار جهاز أولاً');
+                showNotification('تنبيه', 'يرجى اختيار وفحص جهاز أولاً');
                 return;
             }
-            const reason = prompt('أدخل سبب إلغاء الضمان أو الإبلاغ عن تلاعب (مثل كسر اللاصق الأمني، أثر ماء، فك خارج المحل):');
-            if (reason) {
-                const imei = currentDeviceData.device?.imei1 || currentDeviceData.warranty?.imei;
-                if (window.moboraAPI && window.moboraAPI.warranty && window.moboraAPI.warranty.void) {
-                    await window.moboraAPI.warranty.void({ imei, reason });
-                    alert('تم إلغاء الضمان بنجاح وتوثيق الحادثة في سجل الرقابة.');
-                    performSearch(imei);
-                }
-            }
+            document.getElementById('modal-void-warranty')?.classList.remove('hidden');
         });
+    }
+}
+
+function showNotification(title, text) {
+    if (window.showToast) {
+        window.showToast(title, text);
+    } else {
+        alert(`${title}: ${text}`);
     }
 }

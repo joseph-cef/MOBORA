@@ -7,6 +7,7 @@
     let currentPage = 1;
     let selectedCategoryId = 'phone';
     let editingProductId = null;
+    let allProductsCache = [];
 
     async function loadMetrics() {
         if (!window.moboraAPI || !window.moboraAPI.dashboard) return;
@@ -63,13 +64,14 @@
                 telegramStatus: currentTelegramStatus,
                 search: searchQuery,
                 page: currentPage,
-                limit: 50
+                limit: 100
             });
 
+            allProductsCache = res.items || [];
             const tbody = document.querySelector('table tbody');
-            const footerText = document.querySelector('.p-space-md.bg-surface-container .font-body-sm');
+            const footerText = document.querySelector('.p-space-md.bg-surface-container .font-body-sm, .p-space-md.bg-surface-container span:first-child');
             if (footerText) {
-                footerText.innerHTML = `<span>عرض ${res.items.length} من أصل ${res.total} صنفاً</span>`;
+                footerText.innerHTML = `<span>عرض ${res.items.length} من أصل ${res.total} صنفاً في المخزن</span>`;
             }
 
             if (!tbody) return;
@@ -171,7 +173,7 @@
                         </td>
                         <td class="p-space-md text-center">
                             <div class="flex items-center justify-center gap-1">
-                                <button onclick="editProduct(${p.id})" class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors" title="تعديل">
+                                <button onclick="editProduct(${p.id})" class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors" title="تعديل كافة البيانات">
                                     <span class="material-symbols-outlined text-[18px]">edit</span>
                                 </button>
                                 <button onclick="publishToTelegram(${p.id})" class="p-1.5 rounded-lg text-on-surface-variant hover:text-secondary hover:bg-surface-container-high transition-colors" title="نشر على Telegram">
@@ -218,6 +220,19 @@
         }
     };
 
+    // Calculate margin live in modal
+    window.calculateMargin = function () {
+        const cost = Number(document.getElementById('costPrice')?.value) || 0;
+        const sell = Number(document.getElementById('sellPrice')?.value) || 0;
+        const marginVal = sell - cost;
+        const marginPct = cost > 0 ? ((marginVal / cost) * 100).toFixed(1) : 0;
+
+        const pctEl = document.getElementById('marginPercent');
+        const valEl = document.getElementById('marginValue');
+        if (pctEl) pctEl.innerText = `${marginPct >= 0 ? '+' : ''}${marginPct}%`;
+        if (valEl) valEl.innerText = `${Number(marginVal).toLocaleString('fr-DZ')} د.ج`;
+    };
+
     // Modal Open / Close
     window.openProductModal = function (isEdit = false) {
         const modal = document.getElementById('productModal');
@@ -227,9 +242,46 @@
         }
         if (!isEdit) {
             editingProductId = null;
-            document.querySelector('#productModal h2').innerText = 'إضافة بطاقة منتج جديدة';
+            const title = document.querySelector('#productModal h2');
+            if (title) title.innerText = 'إضافة بطاقة منتج جديدة';
+            resetProductModalFields();
         }
     };
+
+    function resetProductModalFields() {
+        window.switchCategory('phone');
+        const modal = document.getElementById('productModal');
+        if (!modal) return;
+
+        const modelInput = modal.querySelector('#phoneFieldsGroup input[placeholder*="Modèle"]');
+        if (modelInput) modelInput.value = '';
+
+        const colorInput = modal.querySelector('#phoneFieldsGroup input[type="text"]:nth-of-type(2)');
+        if (colorInput) colorInput.value = '';
+
+        const imeiInputs = modal.querySelectorAll('input[maxlength="15"]');
+        imeiInputs.forEach(i => i.value = '');
+
+        const accName = modal.querySelector('#accessoryFieldsGroup input');
+        if (accName) accName.value = '';
+
+        const accBarcode = modal.querySelector('#accessoryFieldsGroup input:nth-of-type(2)');
+        if (accBarcode) accBarcode.value = '';
+
+        const cost = document.getElementById('costPrice');
+        if (cost) cost.value = '';
+
+        const sell = document.getElementById('sellPrice');
+        if (sell) sell.value = '';
+
+        const stockInput = modal.querySelector('input[type="number"][min="1"]');
+        if (stockInput) stockInput.value = '1';
+
+        const minStockInput = modal.querySelectorAll('input[type="number"][min="1"]')[1];
+        if (minStockInput) minStockInput.value = '2';
+
+        window.calculateMargin();
+    }
 
     window.closeProductModal = function () {
         const modal = document.getElementById('productModal');
@@ -255,28 +307,52 @@
         const storage = isPhone ? modal.querySelector('#phoneFieldsGroup select:nth-of-type(2)')?.value : null;
         const ram = isPhone ? modal.querySelector('#phoneFieldsGroup select:nth-of-type(3)')?.value : null;
         const color = isPhone ? modal.querySelector('#phoneFieldsGroup input[type="text"]:nth-of-type(2)')?.value : null;
-        const imei1 = isPhone ? modal.querySelector('input[maxlength="15"]')?.value : null;
-        const imei2 = isPhone ? modal.querySelectorAll('input[maxlength="15"]')[1]?.value : null;
+        
+        // Collect IMEIs
+        const rawImei1 = modal.querySelector('input[maxlength="15"]')?.value || '';
+        const rawImei2 = modal.querySelectorAll('input[maxlength="15"]')[1]?.value || '';
+        
+        // Split by whitespace or commas if user pasted multiple IMEIs
+        const parsedImeis = [];
+        if (rawImei1.trim()) {
+            const tokens = rawImei1.trim().split(/[\s,\n]+/);
+            tokens.forEach((t, idx) => {
+                if (t.length >= 10) {
+                    parsedImeis.push({ imei1: t, imei2: (idx === 0 && rawImei2) ? rawImei2.trim() : null });
+                }
+            });
+        }
 
         const costPrice = Number(document.getElementById('costPrice')?.value) || 0;
         const sellPrice = Number(document.getElementById('sellPrice')?.value) || 0;
-        const stock = Number(modal.querySelector('input[type="number"][min="1"]')?.value) || 1;
+        const stockInput = Number(modal.querySelector('input[type="number"][min="1"]')?.value) || 1;
+        const actualStock = isPhone && parsedImeis.length > stockInput ? parsedImeis.length : stockInput;
         const minStock = Number(modal.querySelectorAll('input[type="number"][min="1"]')[1]?.value) || 2;
         const isTgSync = modal.querySelector('input[type="checkbox"].sr-only')?.checked ? 1 : 0;
+        const barcodeInput = modal.querySelector('#accessoryFieldsGroup input:nth-of-type(2)')?.value;
+
+        if (sellPrice <= 0) {
+            alert('يرجى تحديد سعر البيع للصنف بشكل صحيح.');
+            return;
+        }
+
+        const currentUser = window.moboraSession ? window.moboraSession.getUser() : { id: 1 };
 
         const payload = {
             category_slug: selectedCategoryId,
             name,
             brand,
             model,
+            barcode: barcodeInput ? barcodeInput.trim() : undefined,
             storage_rom: storage,
             ram,
             color,
-            imei1,
-            imei2,
+            imei1: parsedImeis.length > 0 ? parsedImeis[0].imei1 : (rawImei1 ? rawImei1.trim() : null),
+            imei2: parsedImeis.length > 0 ? parsedImeis[0].imei2 : (rawImei2 ? rawImei2.trim() : null),
+            imeis: parsedImeis.length > 1 ? parsedImeis : undefined,
             cost_price: costPrice,
             sell_price: sellPrice,
-            current_stock: stock,
+            current_stock: actualStock,
             min_stock_alert: minStock,
             is_telegram_synced: isTgSync,
             is_workshop_only: selectedCategoryId === 'spare' ? 1 : 0
@@ -284,11 +360,11 @@
 
         try {
             if (editingProductId) {
-                await window.moboraAPI.products.update(editingProductId, payload, 1);
-                alert('تم تحديث بيانات المنتج بنجاح!');
+                await window.moboraAPI.products.update(editingProductId, payload, currentUser.id);
+                alert(`✅ تم تحديث بيانات [${name}] بنجاح!`);
             } else {
-                await window.moboraAPI.products.create(payload, 1);
-                alert('تمت إضافة المنتج بنجاح إلى المخزون!');
+                await window.moboraAPI.products.create(payload, currentUser.id);
+                alert(`✅ تمت إضافة [${name}] بنجاح إلى المخزون!`);
             }
             closeProductModal();
             loadMetrics();
@@ -302,7 +378,8 @@
     window.deleteProduct = async function (id, name) {
         if (!confirm(`هل أنت متأكد من حذف الصنف "${name}" نهائياً من قاعدة البيانات؟`)) return;
         try {
-            await window.moboraAPI.products.delete(id, 1);
+            const currentUser = window.moboraSession ? window.moboraSession.getUser() : { id: 1 };
+            await window.moboraAPI.products.delete(id, currentUser.id);
             alert('تم حذف الصنف بنجاح وتم تسجيل العملية في سجل الرقابة.');
             loadMetrics();
             loadProducts();
@@ -311,19 +388,56 @@
         }
     };
 
-    // Edit Product
+    // Edit Product: Fix full population
     window.editProduct = async function (id) {
         try {
             const product = await window.moboraAPI.products.getById(id);
             if (!product) return;
             editingProductId = id;
             openProductModal(true);
+
             document.querySelector('#productModal h2').innerText = `تعديل الصنف: ${product.name}`;
+            window.switchCategory(product.category_slug || 'phone');
+
+            const modal = document.getElementById('productModal');
+
+            if (product.category_slug === 'phone') {
+                const brandSelect = modal.querySelector('#phoneFieldsGroup select');
+                if (brandSelect && product.brand) brandSelect.value = product.brand.toLowerCase();
+
+                const modelInput = modal.querySelector('#phoneFieldsGroup input[placeholder*="Modèle"]');
+                if (modelInput) modelInput.value = product.model || '';
+
+                const colorInput = modal.querySelector('#phoneFieldsGroup input[type="text"]:nth-of-type(2)');
+                if (colorInput) colorInput.value = product.color || '';
+
+                const imeiInputs = modal.querySelectorAll('input[maxlength="15"]');
+                if (product.imeis && product.imeis.length > 0) {
+                    if (imeiInputs[0]) imeiInputs[0].value = product.imeis[0].imei1 || '';
+                    if (imeiInputs[1]) imeiInputs[1].value = product.imeis[0].imei2 || '';
+                }
+            } else {
+                const accName = modal.querySelector('#accessoryFieldsGroup input');
+                if (accName) accName.value = product.name || '';
+                const accBarcode = modal.querySelector('#accessoryFieldsGroup input:nth-of-type(2)');
+                if (accBarcode) accBarcode.value = product.barcode || '';
+            }
+
             document.getElementById('costPrice').value = product.cost_price;
             document.getElementById('sellPrice').value = product.sell_price;
+
+            const stockInput = modal.querySelector('input[type="number"][min="1"]');
+            if (stockInput) stockInput.value = product.current_stock;
+
+            const minStockInput = modal.querySelectorAll('input[type="number"][min="1"]')[1];
+            if (minStockInput) minStockInput.value = product.min_stock_alert;
+
+            const tgCheckbox = modal.querySelector('input[type="checkbox"].sr-only');
+            if (tgCheckbox) tgCheckbox.checked = product.is_telegram_synced === 1;
+
             window.calculateMargin();
         } catch (e) {
-            console.error(e);
+            console.error('[Edit Product Error]', e);
         }
     };
 
@@ -349,6 +463,27 @@
         } catch (e) {
             alert('خطأ أثناء النشر: ' + e.message);
         }
+    };
+
+    // Export Inventory to CSV
+    window.exportInventoryCsv = function () {
+        if (!allProductsCache || allProductsCache.length === 0) {
+            alert('لا توجد منتجات مسجلة في المخزن لتصديرها.');
+            return;
+        }
+
+        let csv = '\uFEFFكود الباركود,اسم الصنف,الفئة,الماركة,الموديل,سعر التكلفة (دج),سعر البيع (دج),المخزون المتوفر,إجمالي قيمة المخزون\n';
+        allProductsCache.forEach(p => {
+            const cat = p.category_name_ar || p.category_slug;
+            const totalVal = p.cost_price * p.current_stock;
+            csv += `"${p.barcode || ''}","${p.name}","${cat}","${p.brand || ''}","${p.model || ''}",${p.cost_price},${p.sell_price},${p.current_stock},${totalVal}\n`;
+        });
+
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = `جرد_مخزون_موبورا_${new Date().toISOString().split('T')[0]}.csv`;
+        link.click();
     };
 
     // Search and filter listeners
@@ -397,9 +532,15 @@
         });
 
         // Open modal button
-        const openModalBtn = document.getElementById('openModalBtn');
+        const openModalBtn = Array.from(document.querySelectorAll('button')).find(b => b.innerText.includes('إضافة بطاقة منتج') || b.id === 'openModalBtn');
         if (openModalBtn) {
             openModalBtn.onclick = () => openProductModal(false);
+        }
+
+        // Export Inventory CSV button
+        const exportBtn = Array.from(document.querySelectorAll('button')).find(b => b.innerText.includes('تصدير') || b.innerText.includes('جرد'));
+        if (exportBtn) {
+            exportBtn.onclick = window.exportInventoryCsv;
         }
 
         const closeModalBtn = document.getElementById('closeModalBtn');
@@ -412,8 +553,7 @@
             cancelModalBtn.onclick = closeProductModal;
         }
 
-        const saveBtn = document.querySelector('#productModal button:has(.material-symbols-outlined:contains("save")), #productModal .bg-primary');
-        const footerSaveBtn = Array.from(document.querySelectorAll('#productModal button')).find(b => b.innerText.includes('حفظ المنتج'));
+        const footerSaveBtn = Array.from(document.querySelectorAll('#productModal button')).find(b => b.innerText.includes('حفظ المنتج') || b.innerText.includes('حفظ البطاقة'));
         if (footerSaveBtn) {
             footerSaveBtn.onclick = window.saveProductForm;
         }

@@ -77,7 +77,8 @@ contextBridge.exposeInMainWorld('moboraAPI', {
         getAll: () => ipcRenderer.invoke('settings:get-all'),
         update: (settingsMap) => ipcRenderer.invoke('settings:update', settingsMap),
         createBackup: (payload) => ipcRenderer.invoke('backup:create-now', payload),
-        listBackups: () => ipcRenderer.invoke('backup:list')
+        listBackups: () => ipcRenderer.invoke('backup:list'),
+        restoreBackup: (payload) => ipcRenderer.invoke('backup:restore', payload)
     },
 
     // 10. Telegram Bot
